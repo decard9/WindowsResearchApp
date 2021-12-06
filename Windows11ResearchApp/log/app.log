@@ -1,0 +1,277 @@
+2021-12-07 08:23:45,516 ; principalGroupid;GoogleUpdateTaskMachineCore;\;Author;;SYSTEM;Author
+2021-12-07 08:23:45,526 ; principalGroupid;GoogleUpdateTaskMachineUA;\;Author;;SYSTEM;Author
+2021-12-07 08:23:45,527 ; principalGroupid;MicrosoftEdgeShadowStackRollbackTask;\;Author;;SYSTEM;Author
+2021-12-07 08:23:45,528 ; principalGroupid;MicrosoftEdgeUpdateTaskMachineCore;\;Author;;SYSTEM;Author
+2021-12-07 08:23:45,529 ; principalGroupid;MicrosoftEdgeUpdateTaskMachineUA;\;Author;;SYSTEM;Author
+2021-12-07 08:23:45,530 ; principalGroupid;OneDrive Standalone Update Task-S-1-5-21-3738858045-2404283812-4091450898-1001;\;Author;;aluca;Author
+2021-12-07 08:23:45,534 ; principalGroupid;BackgroundDownload;\Microsoft\VisualStudio\Updates;Author;;aluca;Author
+2021-12-07 08:23:45,539 ; principalGroupid;.NET Framework NGEN v4.0.30319;\Microsoft\Windows\.NET Framework;Author;;SYSTEM;Author
+2021-12-07 08:23:45,541 ; principalGroupid;.NET Framework NGEN v4.0.30319 64;\Microsoft\Windows\.NET Framework;Author;;SYSTEM;Author
+2021-12-07 08:23:45,542 ; principalGroupid;.NET Framework NGEN v4.0.30319 64 Critical;\Microsoft\Windows\.NET Framework;Author;;SYSTEM;Author
+2021-12-07 08:23:45,542 ; taskscheduler last ;\Microsoft\Windows\.NET Framework;.NET Framework NGEN v4.0.30319 64 Critical
+2021-12-07 08:23:45,543 ; principalGroupid;.NET Framework NGEN v4.0.30319 Critical;\Microsoft\Windows\.NET Framework;Author;;SYSTEM;Author
+2021-12-07 08:23:45,544 ; taskscheduler last ;\Microsoft\Windows\.NET Framework;.NET Framework NGEN v4.0.30319 Critical
+2021-12-07 08:23:45,546 ; principalGroupid;AD RMS Rights Policy Template Management (Automated);\Microsoft\Windows\Active Directory Rights Management Services Client;AllUsers;Everyone;;AllUsers
+2021-12-07 08:23:45,547 ; ismod;AD RMS Rights Policy Template Management (Automated) ; \Microsoft\Windows\Active Directory Rights Management Services Client
+2021-12-07 08:23:45,556 ; principalGroupid;AD RMS Rights Policy Template Management (Manual);\Microsoft\Windows\Active Directory Rights Management Services Client;AllUsers;Everyone;;AllUsers
+2021-12-07 08:23:45,557 ; ismod;AD RMS Rights Policy Template Management (Manual) ; \Microsoft\Windows\Active Directory Rights Management Services Client
+2021-12-07 08:23:45,562 ; principalGroupid;EDP Policy Manager;\Microsoft\Windows\AppID;LocalService;;LOCAL SERVICE;LocalService
+2021-12-07 08:23:45,563 ; principalGroupid;PolicyConverter;\Microsoft\Windows\AppID;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,565 ; principalGroupid;VerifiedPublisherCertStoreCheck;\Microsoft\Windows\AppID;LocalService;;LOCAL SERVICE;LocalService
+2021-12-07 08:23:45,567 ; principalGroupid;Microsoft Compatibility Appraiser;\Microsoft\Windows\Application Experience;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,568 ; principalGroupid;PcaPatchDbTask;\Microsoft\Windows\Application Experience;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,570 ; principalGroupid;ProgramDataUpdater;\Microsoft\Windows\Application Experience;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,571 ; principalGroupid;StartupAppTask;\Microsoft\Windows\Application Experience;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,573 ; principalGroupid;appuriverifierdaily;\Microsoft\Windows\ApplicationData;AllUsers;INTERACTIVE;;AllUsers
+2021-12-07 08:23:45,575 ; principalGroupid;appuriverifierinstall;\Microsoft\Windows\ApplicationData;AllUsers;INTERACTIVE;;AllUsers
+2021-12-07 08:23:45,577 ; principalGroupid;CleanupTemporaryState;\Microsoft\Windows\ApplicationData;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,578 ; principalGroupid;DsSvcCleanup;\Microsoft\Windows\ApplicationData;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,580 ; principalGroupid;Backup;\Microsoft\Windows\AppListBackup;AnyUser;Users;;AnyUser
+2021-12-07 08:23:45,581 ; principalGroupid;Pre-staged app cleanup;\Microsoft\Windows\AppxDeploymentClient;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,581 ; taskscheduler last ;\Microsoft\Windows\AppxDeploymentClient;Pre-staged app cleanup
+2021-12-07 08:23:45,583 ; principalGroupid;Proxy;\Microsoft\Windows\Autochk;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,584 ; principalGroupid;BitLocker Encrypt All Drives;\Microsoft\Windows\BitLocker;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,585 ; principalGroupid;BitLocker MDM policy Refresh;\Microsoft\Windows\BitLocker;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,587 ; principalGroupid;UninstallDeviceTask;\Microsoft\Windows\Bluetooth;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,588 ; principalGroupid;BgTaskRegistrationMaintenanceTask;\Microsoft\Windows\BrokerInfrastructure;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,590 ; ismod;BgTaskRegistrationMaintenanceTask ; \Microsoft\Windows\BrokerInfrastructure
+2021-12-07 08:23:45,595 ; principalGroupid;maintenancetasks;\Microsoft\Windows\capabilityaccessmanager;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,597 ; principalGroupid;AikCertEnrollTask;\Microsoft\Windows\CertificateServicesClient;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,598 ; principalGroupid;CryptoPolicyTask;\Microsoft\Windows\CertificateServicesClient;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,600 ; principalGroupid;KeyPreGenTask;\Microsoft\Windows\CertificateServicesClient;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,602 ; principalGroupid;SystemTask;\Microsoft\Windows\CertificateServicesClient;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,604 ; principalGroupid;UserTask;\Microsoft\Windows\CertificateServicesClient;InteractiveUsers;INTERACTIVE;;InteractiveUsers
+2021-12-07 08:23:45,605 ; principalGroupid;UserTask-Roam;\Microsoft\Windows\CertificateServicesClient;InteractiveUsers;INTERACTIVE;;InteractiveUsers
+2021-12-07 08:23:45,607 ; principalGroupid;ProactiveScan;\Microsoft\Windows\Chkdsk;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,608 ; principalGroupid;SyspartRepair;\Microsoft\Windows\Chkdsk;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,610 ; principalGroupid;License Validation;\Microsoft\Windows\Clip;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,611 ; principalGroupid;CreateObjectTask;\Microsoft\Windows\CloudExperienceHost;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,613 ; principalGroupid;Consolidator;\Microsoft\Windows\Customer Experience Improvement Program;WinSQMAccount;;SYSTEM;WinSQMAccount
+2021-12-07 08:23:45,614 ; principalGroupid;UsbCeip;\Microsoft\Windows\Customer Experience Improvement Program;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,616 ; principalGroupid;Data Integrity Check And Scan;\Microsoft\Windows\Data Integrity Scan;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,617 ; principalGroupid;Data Integrity Scan;\Microsoft\Windows\Data Integrity Scan;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,619 ; principalGroupid;Data Integrity Scan for Crash Recovery;\Microsoft\Windows\Data Integrity Scan;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,622 ; principalGroupid;ScheduledDefrag;\Microsoft\Windows\Defrag;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,623 ; principalGroupid;Device;\Microsoft\Windows\Device Information;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,624 ; principalGroupid;Device User;\Microsoft\Windows\Device Information;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,626 ; principalGroupid;Metadata Refresh;\Microsoft\Windows\Device Setup;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,627 ; principalGroupid;HandleCommand;\Microsoft\Windows\DeviceDirectoryClient;System;;SYSTEM;System
+2021-12-07 08:23:45,628 ; principalGroupid;HandleWnsCommand;\Microsoft\Windows\DeviceDirectoryClient;System;;SYSTEM;System
+2021-12-07 08:23:45,629 ; principalGroupid;IntegrityCheck;\Microsoft\Windows\DeviceDirectoryClient;System;;SYSTEM;System
+2021-12-07 08:23:45,631 ; principalGroupid;LocateCommandUserSession;\Microsoft\Windows\DeviceDirectoryClient;User;INTERACTIVE;;User
+2021-12-07 08:23:45,632 ; principalGroupid;RegisterDeviceAccountChange;\Microsoft\Windows\DeviceDirectoryClient;System;;SYSTEM;System
+2021-12-07 08:23:45,633 ; principalGroupid;RegisterDeviceLocationRightsChange;\Microsoft\Windows\DeviceDirectoryClient;System;;SYSTEM;System
+2021-12-07 08:23:45,634 ; principalGroupid;RegisterDevicePeriodic24;\Microsoft\Windows\DeviceDirectoryClient;System;;SYSTEM;System
+2021-12-07 08:23:45,635 ; principalGroupid;RegisterDevicePolicyChange;\Microsoft\Windows\DeviceDirectoryClient;System;;SYSTEM;System
+2021-12-07 08:23:45,636 ; principalGroupid;RegisterDeviceProtectionStateChanged;\Microsoft\Windows\DeviceDirectoryClient;System;;SYSTEM;System
+2021-12-07 08:23:45,637 ; principalGroupid;RegisterDeviceSettingChange;\Microsoft\Windows\DeviceDirectoryClient;System;;SYSTEM;System
+2021-12-07 08:23:45,639 ; principalGroupid;RegisterDeviceWnsFallback;\Microsoft\Windows\DeviceDirectoryClient;System;;SYSTEM;System
+2021-12-07 08:23:45,640 ; principalGroupid;RegisterUserDevice;\Microsoft\Windows\DeviceDirectoryClient;User;INTERACTIVE;;User
+2021-12-07 08:23:45,642 ; principalGroupid;RecommendedTroubleshootingScanner;\Microsoft\Windows\Diagnosis;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,643 ; principalGroupid;Scheduled;\Microsoft\Windows\Diagnosis;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,644 ; principalGroupid;DirectXDatabaseUpdater;\Microsoft\Windows\DirectX;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,645 ; principalGroupid;DXGIAdapterCache;\Microsoft\Windows\DirectX;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,648 ; principalGroupid;SilentCleanup;\Microsoft\Windows\DiskCleanup;Author;Users;;Author
+2021-12-07 08:23:45,650 ; principalGroupid;Microsoft-Windows-DiskDiagnosticDataCollector;\Microsoft\Windows\DiskDiagnostic;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,652 ; principalGroupid;Microsoft-Windows-DiskDiagnosticResolver;\Microsoft\Windows\DiskDiagnostic;AllUsers;Users;;AllUsers
+2021-12-07 08:23:45,653 ; principalGroupid;Diagnostics;\Microsoft\Windows\DiskFootprint;System;;SYSTEM;System
+2021-12-07 08:23:45,654 ; principalGroupid;StorageSense;\Microsoft\Windows\DiskFootprint;System;;SYSTEM;System
+2021-12-07 08:23:45,655 ; principalGroupid;dusmtask;\Microsoft\Windows\DUSM;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,657 ; principalGroupid;EDP App Launch Task;\Microsoft\Windows\EDP;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,658 ; principalGroupid;EDP Auth Task;\Microsoft\Windows\EDP;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,659 ; principalGroupid;EDP Inaccessible Credentials Task;\Microsoft\Windows\EDP;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,660 ; principalGroupid;StorageCardEncryption Task;\Microsoft\Windows\EDP;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,662 ; principalGroupid;ExploitGuard MDM policy Refresh;\Microsoft\Windows\ExploitGuard;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,663 ; principalGroupid;DmClient;\Microsoft\Windows\Feedback\Siuf;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,664 ; principalGroupid;DmClientOnScenarioDownload;\Microsoft\Windows\Feedback\Siuf;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,666 ; principalGroupid;Property Definition Sync;\Microsoft\Windows\File Classification Infrastructure;Author;;SYSTEM;Author
+2021-12-07 08:23:45,668 ; principalGroupid;File History (maintenance mode);\Microsoft\Windows\FileHistory;LocalService;;LOCAL SERVICE;LocalService
+2021-12-07 08:23:45,670 ; principalGroupid;ReconcileFeatures;\Microsoft\Windows\Flighting\FeatureConfig;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,671 ; principalGroupid;UsageDataFlushing;\Microsoft\Windows\Flighting\FeatureConfig;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,673 ; principalGroupid;UsageDataReporting;\Microsoft\Windows\Flighting\FeatureConfig;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,674 ; principalGroupid;RefreshCache;\Microsoft\Windows\Flighting\OneSettings;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,676 ; principalGroupid;LocalUserSyncDataAvailable;\Microsoft\Windows\Input;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,677 ; principalGroupid;MouseSyncDataAvailable;\Microsoft\Windows\Input;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,678 ; principalGroupid;PenSyncDataAvailable;\Microsoft\Windows\Input;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,679 ; principalGroupid;TouchpadSyncDataAvailable;\Microsoft\Windows\Input;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,680 ; principalGroupid;ScanForUpdates;\Microsoft\Windows\InstallService;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,682 ; principalGroupid;ScanForUpdatesAsUser;\Microsoft\Windows\InstallService;AllUsers;INTERACTIVE;;AllUsers
+2021-12-07 08:23:45,683 ; principalGroupid;SmartRetry;\Microsoft\Windows\InstallService;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,684 ; principalGroupid;WakeUpAndContinueUpdates;\Microsoft\Windows\InstallService;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,685 ; principalGroupid;WakeUpAndScanForUpdates;\Microsoft\Windows\InstallService;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,687 ; principalGroupid;Synchronize Language Settings;\Microsoft\Windows\International;InteractiveUsers;INTERACTIVE;;InteractiveUsers
+2021-12-07 08:23:45,689 ; principalGroupid;La57Cleanup;\Microsoft\Windows\Kernel;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,691 ; principalGroupid;Installation;\Microsoft\Windows\LanguageComponentsInstaller;Author;INTERACTIVE;;Author
+2021-12-07 08:23:45,692 ; principalGroupid;ReconcileLanguageResources;\Microsoft\Windows\LanguageComponentsInstaller;InteractiveUsers;INTERACTIVE;;InteractiveUsers
+2021-12-07 08:23:45,694 ; principalGroupid;Uninstallation;\Microsoft\Windows\LanguageComponentsInstaller;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,694 ; taskscheduler last ;\Microsoft\Windows\LanguageComponentsInstaller;Uninstallation
+2021-12-07 08:23:45,695 ; principalGroupid;TempSignedLicenseExchange;\Microsoft\Windows\License Manager;AllUsers;INTERACTIVE;;AllUsers
+2021-12-07 08:23:45,699 ; principalGroupid;Notifications;\Microsoft\Windows\Location;Creator;Authenticated Users;;Creator
+2021-12-07 08:23:45,701 ; principalGroupid;WindowsActionDialog;\Microsoft\Windows\Location;Creator;Authenticated Users;;Creator
+2021-12-07 08:23:45,703 ; principalGroupid;WinSAT;\Microsoft\Windows\Maintenance;LocalAdmin;Administrators;;LocalAdmin
+2021-12-07 08:23:45,703 ; ismod;WinSAT ; \Microsoft\Windows\Maintenance
+2021-12-07 08:23:45,708 ; principalGroupid;Cellular;\Microsoft\Windows\Management\Provisioning;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,709 ; principalGroupid;Logon;\Microsoft\Windows\Management\Provisioning;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,710 ; principalGroupid;MdmDiagnosticsCleanup;\Microsoft\Windows\Management\Provisioning;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,710 ; taskscheduler last ;\Microsoft\Windows\Management\Provisioning;MdmDiagnosticsCleanup
+2021-12-07 08:23:45,711 ; principalGroupid;Retry;\Microsoft\Windows\Management\Provisioning;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,712 ; principalGroupid;RunOnReboot;\Microsoft\Windows\Management\Provisioning;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,714 ; principalGroupid;MapsToastTask;\Microsoft\Windows\Maps;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,715 ; principalGroupid;MapsUpdateTask;\Microsoft\Windows\Maps;NetworkService;;NETWORK SERVICE;NetworkService
+2021-12-07 08:23:45,717 ; principalGroupid;ProcessMemoryDiagnosticEvents;\Microsoft\Windows\MemoryDiagnostic;LocalAdmin;Administrators;;LocalAdmin
+2021-12-07 08:23:45,719 ; principalGroupid;RunFullMemoryDiagnostic;\Microsoft\Windows\MemoryDiagnostic;LocalAdmin;Administrators;;LocalAdmin
+2021-12-07 08:23:45,721 ; principalGroupid;LPRemove;\Microsoft\Windows\MUI;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,723 ; principalGroupid;SystemSoundsService;\Microsoft\Windows\Multimedia;Group;Users;;Group
+2021-12-07 08:23:45,726 ; principalGroupid;GatherNetworkInfo;\Microsoft\Windows\NetTrace;AnyUser;Users;;AnyUser
+2021-12-07 08:23:45,728 ; principalGroupid;WiFiTask;\Microsoft\Windows\NlaSvc;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,730 ; principalGroupid;Background Synchronization;\Microsoft\Windows\Offline Files;Users;Authenticated Users;;Users
+2021-12-07 08:23:45,731 ; principalGroupid;Logon Synchronization;\Microsoft\Windows\Offline Files;Users;Authenticated Users;;Users
+2021-12-07 08:23:45,733 ; principalGroupid;Secure-Boot-Update;\Microsoft\Windows\PI;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,734 ; principalGroupid;Sqm-Tasks;\Microsoft\Windows\PI;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,736 ; principalGroupid;Device Install Group Policy;\Microsoft\Windows\Plug and Play;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,738 ; principalGroupid;Device Install Reboot Required;\Microsoft\Windows\Plug and Play;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,739 ; principalGroupid;Sysprep Generalize Drivers;\Microsoft\Windows\Plug and Play;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,740 ; principalGroupid;AnalyzeSystem;\Microsoft\Windows\Power Efficiency Diagnostics;LocalSystemAccount;;SYSTEM;LocalSystemAccount
+2021-12-07 08:23:45,742 ; principalGroupid;EduPrintProv;\Microsoft\Windows\Printing;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,743 ; principalGroupid;PrinterCleanupTask;\Microsoft\Windows\Printing;System;;SYSTEM;System
+2021-12-07 08:23:45,744 ; principalGroupid;LoginCheck;\Microsoft\Windows\PushToInstall;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,745 ; principalGroupid;Registration;\Microsoft\Windows\PushToInstall;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,747 ; principalGroupid;MobilityManager;\Microsoft\Windows\Ras;LocalService;;LOCAL SERVICE;LocalService
+2021-12-07 08:23:45,749 ; principalGroupid;VerifyWinRE;\Microsoft\Windows\RecoveryEnvironment;LocalAdmin;Administrators;;LocalAdmin
+2021-12-07 08:23:45,750 ; principalGroupid;RegIdleBackup;\Microsoft\Windows\Registry;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,752 ; principalGroupid;RemoteAssistanceTask;\Microsoft\Windows\RemoteAssistance;Creator;;SYSTEM;Creator
+2021-12-07 08:23:45,754 ; principalGroupid;StartComponentCleanup;\Microsoft\Windows\Servicing;System;;SYSTEM;System
+2021-12-07 08:23:45,755 ; principalGroupid;Account Cleanup;\Microsoft\Windows\SharedPC;Author;;SYSTEM;Author
+2021-12-07 08:23:45,756 ; principalGroupid;CreateObjectTask;\Microsoft\Windows\Shell;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,758 ; principalGroupid;FamilySafetyMonitor;\Microsoft\Windows\Shell;System;;SYSTEM;System
+2021-12-07 08:23:45,760 ; principalGroupid;FamilySafetyRefreshTask;\Microsoft\Windows\Shell;System;;SYSTEM;System
+2021-12-07 08:23:45,762 ; principalGroupid;IndexerAutomaticMaintenance;\Microsoft\Windows\Shell;LocalService;;LOCAL SERVICE;LocalService
+2021-12-07 08:23:45,764 ; principalGroupid;ThemesSyncedImageDownload;\Microsoft\Windows\Shell;Users;Users;;Users
+2021-12-07 08:23:45,765 ; principalGroupid;UpdateUserPictureTask;\Microsoft\Windows\Shell;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,767 ; principalGroupid;SvcRestartTask;\Microsoft\Windows\SoftwareProtectionPlatform;NetworkService;;NETWORK SERVICE;NetworkService
+2021-12-07 08:23:45,768 ; principalGroupid;SvcRestartTaskLogon;\Microsoft\Windows\SoftwareProtectionPlatform;InteractiveUser;INTERACTIVE;;InteractiveUser
+2021-12-07 08:23:45,768 ; taskscheduler last ;\Microsoft\Windows\SoftwareProtectionPlatform;SvcRestartTaskLogon
+2021-12-07 08:23:45,770 ; principalGroupid;SvcRestartTaskNetwork;\Microsoft\Windows\SoftwareProtectionPlatform;NetworkService;;NETWORK SERVICE;NetworkService
+2021-12-07 08:23:45,772 ; principalGroupid;SpaceAgentTask;\Microsoft\Windows\SpacePort;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,773 ; principalGroupid;SpaceManagerTask;\Microsoft\Windows\SpacePort;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,775 ; principalGroupid;SpeechModelDownloadTask;\Microsoft\Windows\Speech;NetworkService;;NETWORK SERVICE;NetworkService
+2021-12-07 08:23:45,776 ; principalGroupid;MaintenanceTasks;\Microsoft\Windows\StateRepository;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,778 ; principalGroupid;Storage Tiers Management Initialization;\Microsoft\Windows\Storage Tiers Management;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,779 ; principalGroupid;Storage Tiers Optimization;\Microsoft\Windows\Storage Tiers Management;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,781 ; principalGroupid;EnableLicenseAcquisition;\Microsoft\Windows\Subscription;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,782 ; principalGroupid;LicenseAcquisition;\Microsoft\Windows\Subscription;InteractiveUser;INTERACTIVE;;InteractiveUser
+2021-12-07 08:23:45,784 ; principalGroupid;HybridDriveCachePrepopulate;\Microsoft\Windows\Sysmain;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,785 ; principalGroupid;HybridDriveCacheRebalance;\Microsoft\Windows\Sysmain;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,787 ; principalGroupid;ResPriStaticDbSync;\Microsoft\Windows\Sysmain;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,788 ; principalGroupid;WsSwapAssessmentTask;\Microsoft\Windows\Sysmain;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,790 ; principalGroupid;SR;\Microsoft\Windows\SystemRestore;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,791 ; principalGroupid;Interactive;\Microsoft\Windows\Task Manager;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,794 ; principalGroupid;MsCtfMonitor;\Microsoft\Windows\TextServicesFramework;AnyUser;Users;;AnyUser
+2021-12-07 08:23:45,796 ; principalGroupid;ForceSynchronizeTime;\Microsoft\Windows\Time Synchronization;LocalService;;LOCAL SERVICE;LocalService
+2021-12-07 08:23:45,797 ; principalGroupid;SynchronizeTime;\Microsoft\Windows\Time Synchronization;LocalService;;LOCAL SERVICE;LocalService
+2021-12-07 08:23:45,798 ; principalGroupid;SynchronizeTimeZone;\Microsoft\Windows\Time Zone;Author;;SYSTEM;Author
+2021-12-07 08:23:45,800 ; principalGroupid;Tpm-HASCertRetr;\Microsoft\Windows\TPM;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,802 ; principalGroupid;Tpm-Maintenance;\Microsoft\Windows\TPM;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,803 ; principalGroupid;RunUpdateNotificationMgr;\Microsoft\Windows\UNP;Author;;SYSTEM;Author
+2021-12-07 08:23:45,805 ; principalGroupid;Report policies;\Microsoft\Windows\UpdateOrchestrator;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,806 ; principalGroupid;Schedule Maintenance Work;\Microsoft\Windows\UpdateOrchestrator;Author;;SYSTEM;Author
+2021-12-07 08:23:45,807 ; principalGroupid;Schedule Scan;\Microsoft\Windows\UpdateOrchestrator;Author;;SYSTEM;Author
+2021-12-07 08:23:45,808 ; principalGroupid;Schedule Scan Static Task;\Microsoft\Windows\UpdateOrchestrator;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,809 ; principalGroupid;Schedule Wake To Work;\Microsoft\Windows\UpdateOrchestrator;Author;;SYSTEM;Author
+2021-12-07 08:23:45,810 ; principalGroupid;Schedule Work;\Microsoft\Windows\UpdateOrchestrator;Author;;SYSTEM;Author
+2021-12-07 08:23:45,810 ; taskscheduler last ;\Microsoft\Windows\UpdateOrchestrator;Schedule Work
+2021-12-07 08:23:45,811 ; principalGroupid;Start Oobe Expedite Work;\Microsoft\Windows\UpdateOrchestrator;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,813 ; principalGroupid;StartOobeAppsScan;\Microsoft\Windows\UpdateOrchestrator;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,814 ; principalGroupid;UpdateModelTask;\Microsoft\Windows\UpdateOrchestrator;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,816 ; principalGroupid;USO_UxBroker;\Microsoft\Windows\UpdateOrchestrator;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,817 ; principalGroupid;UUS Failover Task;\Microsoft\Windows\UpdateOrchestrator;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,817 ; Author error;$(@%systemRoot%\system32\update\uusbrain.dll,-101)
+2021-12-07 08:23:45,817 ; Source error;$(@%systemRoot%\system32\update\uusbrain.dll,-102)
+2021-12-07 08:23:45,817 ; Description error;$(@%systemRoot%\system32\update\uusbrain.dll,-103)
+2021-12-07 08:23:45,817 ; ismod;UUS Failover Task ; \Microsoft\Windows\UpdateOrchestrator
+2021-12-07 08:23:45,845 ; taskscheduler error1 ;\Microsoft\Windows\UpdateOrchestrator;UUS Failover Task;System.UnauthorizedAccessException: 액세스가 거부되었습니다. (예외가 발생한 HRESULT: 0x80070005 (E_ACCESSDENIED))
+   위치: Microsoft.Win32.TaskScheduler.V2Interop.ITaskFolder.RegisterTaskDefinition(String Path, ITaskDefinition pDefinition, Int32 flags, Object UserId, Object password, TaskLogonType LogonType, Object sddl)
+   위치: Microsoft.Win32.TaskScheduler.TaskFolder.RegisterTaskDefinition(String path, TaskDefinition definition, TaskCreation createType, String userId, String password, TaskLogonType logonType, String sddl)
+   위치: Microsoft.Win32.TaskScheduler.TaskFolder.RegisterTaskDefinition(String path, TaskDefinition definition)
+   위치: antidll.myhklmsoftware.regWindowsNTFunc(Int32 nSelect) 파일 C:\Users\aluca\Documents\Github\myPrivateProjs\visual studio proj\antidll\win10_registryFile\myhklmsoftware.cs:줄 4942
+2021-12-07 08:23:45,847 ; principalGroupid;UPnPHostConfig;\Microsoft\Windows\UPnP;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,848 ; principalGroupid;Usb-Notifications;\Microsoft\Windows\USB;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,850 ; principalGroupid;HiveUploadTask;\Microsoft\Windows\User Profile Service;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,852 ; principalGroupid;PerformRemediation;\Microsoft\Windows\WaaSMedic;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,854 ; principalGroupid;WiFiTask;\Microsoft\Windows\WCM;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,855 ; principalGroupid;ResolutionHost;\Microsoft\Windows\WDI;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,857 ; principalGroupid;Windows Defender Cache Maintenance;\Microsoft\Windows\Windows Defender;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,858 ; principalGroupid;Windows Defender Cleanup;\Microsoft\Windows\Windows Defender;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,859 ; principalGroupid;Windows Defender Scheduled Scan;\Microsoft\Windows\Windows Defender;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,860 ; principalGroupid;Windows Defender Verification;\Microsoft\Windows\Windows Defender;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,862 ; principalGroupid;QueueReporting;\Microsoft\Windows\Windows Error Reporting;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,863 ; principalGroupid;BfeOnServiceStartTypeChange;\Microsoft\Windows\Windows Filtering Platform;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,865 ; principalGroupid;UpdateLibrary;\Microsoft\Windows\Windows Media Sharing;AuthenticatedUsers;Authenticated Users;;AuthenticatedUsers
+2021-12-07 08:23:45,867 ; principalGroupid;Calibration Loader;\Microsoft\Windows\WindowsColorSystem;Group;Users;;Group
+2021-12-07 08:23:45,869 ; principalGroupid;Scheduled Start;\Microsoft\Windows\WindowsUpdate;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,875 ; principalGroupid;CacheTask;\Microsoft\Windows\Wininet;AnyUser;Users;;AnyUser
+2021-12-07 08:23:45,876 ; taskscheduler last ;\Microsoft\Windows\Wininet;CacheTask
+2021-12-07 08:23:45,877 ; principalGroupid;CDSSync;\Microsoft\Windows\WlanSvc;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,879 ; principalGroupid;WIM-Hash-Management;\Microsoft\Windows\WOF;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,880 ; principalGroupid;WIM-Hash-Validation;\Microsoft\Windows\WOF;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,880 ; taskscheduler last ;\Microsoft\Windows\WOF;WIM-Hash-Validation
+2021-12-07 08:23:45,882 ; principalGroupid;Work Folders Logon Synchronization;\Microsoft\Windows\Work Folders;InteractiveUsers;INTERACTIVE;;InteractiveUsers
+2021-12-07 08:23:45,884 ; principalGroupid;Work Folders Maintenance Work;\Microsoft\Windows\Work Folders;InteractiveUsers;INTERACTIVE;;InteractiveUsers
+2021-12-07 08:23:45,885 ; principalGroupid;Automatic-Device-Join;\Microsoft\Windows\Workplace Join;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,887 ; principalGroupid;Device-Sync;\Microsoft\Windows\Workplace Join;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,889 ; principalGroupid;Recovery-Check;\Microsoft\Windows\Workplace Join;InteractiveUsers;INTERACTIVE;;InteractiveUsers
+2021-12-07 08:23:45,890 ; principalGroupid;NotificationTask;\Microsoft\Windows\WwanSvc;Users;INTERACTIVE;;Users
+2021-12-07 08:23:45,892 ; principalGroupid;OobeDiscovery;\Microsoft\Windows\WwanSvc;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,893 ; principalGroupid;XblGameSaveTask;\Microsoft\XblGameSave;LocalSystem;;SYSTEM;LocalSystem
+2021-12-07 08:23:45,894 ; principalGroupid;Firefox Background Update 308046B0AF4A39CB;\Mozilla;Author;;aluca;Author
+2021-12-07 08:23:45,895 ; principalGroupid;Firefox Default Browser Agent 308046B0AF4A39CB;\Mozilla;Author;;aluca;Author
+2021-12-07 08:37:01,404 ; 로컬로그온거부1;
+2021-12-07 08:37:01,415 ; 로컬로그온거부2;
+2021-12-07 08:37:01,419 ; 로컬로그온거부3;
+2021-12-07 08:37:01,419 ; 감사 및 보안 로그 관리 ;
+2021-12-07 08:37:01,419 ; 도킹 스테이션에서 컴퓨터 제거; 
+2021-12-07 08:37:01,419 ; 동일한 세션의 다른 사용자에 대한 가장 토큰을 가져옵니다.;
+2021-12-07 08:37:01,419 ; 메모리에 페이지 잠금;
+2021-12-07 08:37:01,419 ; 보안 감사 생성1;
+2021-12-07 08:37:01,419 ; 볼륨 유지 관리 작업 수행;
+2021-12-07 08:37:01,420 ; 시간대 변경; 
+2021-12-07 08:37:01,420 ; 시스템 시간 변경;
+2021-12-07 08:37:01,420 ; 시스템 종료 ;
+2021-12-07 08:37:01,420 ; 심볼 링크 만들기;
+2021-12-07 08:37:01,420 ; 영구 공유 개체 만들기;
+2021-12-07 08:37:01,420 ; 예약 우선 순위 증가;
+2021-12-07 08:37:01,420 ; 운영 체제의 일부로 작동;
+2021-12-07 08:37:01,420 ; 인증 이후 클라이언트 가장;
+2021-12-07 08:37:01,422 ; 장치 드라이버 로드 및 언로드;
+2021-12-07 08:37:01,424 ; 전역 개체 만들기;
+2021-12-07 08:37:01,425 ; 토큰 개체 만들기;
+2021-12-07 08:37:01,427 ; 트래버스 검사 무시;
+2021-12-07 08:37:01,428 ; 파일 또는 기타 개체의 소유권 가져오기;
+2021-12-07 08:37:01,429 ; 파일 및 디렉터리 백업;
+2021-12-07 08:37:01,431 ; 파일 및 디렉터리 복원 ;
+2021-12-07 08:37:01,432 ; 펌웨어 환경 값 수정;
+2021-12-07 08:37:01,433 ; 페이지 파일 만들기;
+2021-12-07 08:37:01,434 ; 프로그램 디버그;
+2021-12-07 08:37:01,435 ; 프로세스 수준 토큰 바꾸기;
+2021-12-07 08:37:01,437 ; 프로세스 작업 집합 향상;
+2021-12-07 08:37:01,438 ; 프로세스에 대한 메모리 할당량 조정;
+2021-12-07 08:37:01,439 ; 프로필 단일 프로세스 ;
+2021-12-07 08:37:01,440 ; 프로필 시스템 성능 ;
+2021-12-07 08:39:37,761 ; 로컬로그온거부1;
+2021-12-07 08:39:37,771 ; 로컬로그온거부2;
+2021-12-07 08:39:37,774 ; 로컬로그온거부3;
+2021-12-07 08:39:37,774 ; 감사 및 보안 로그 관리 ;
+2021-12-07 08:39:37,775 ; 도킹 스테이션에서 컴퓨터 제거; 
+2021-12-07 08:39:37,776 ; 동일한 세션의 다른 사용자에 대한 가장 토큰을 가져옵니다.;
+2021-12-07 08:39:37,777 ; 메모리에 페이지 잠금;
+2021-12-07 08:39:37,779 ; 보안 감사 생성1;
+2021-12-07 08:39:37,780 ; 볼륨 유지 관리 작업 수행;
+2021-12-07 08:39:37,782 ; 시간대 변경; 
+2021-12-07 08:39:37,783 ; 시스템 시간 변경;
+2021-12-07 08:39:37,784 ; 시스템 종료 ;
+2021-12-07 08:39:37,785 ; 심볼 링크 만들기;
+2021-12-07 08:39:37,787 ; 영구 공유 개체 만들기;
+2021-12-07 08:39:37,788 ; 예약 우선 순위 증가;
+2021-12-07 08:39:37,789 ; 운영 체제의 일부로 작동;
+2021-12-07 08:39:37,790 ; 인증 이후 클라이언트 가장;
+2021-12-07 08:39:37,799 ; 보안 감사 생성 ;LsaAddAccountRights failed with error code: 3221225524
