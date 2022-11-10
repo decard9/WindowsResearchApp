@@ -4,218 +4,342 @@
         <name>Storage.Net</name>
     </assembly>
     <members>
-        <member name="T:Storage.Net.Blob.BlobId">
+        <member name="T:Storage.Net.Blobs.Blob">
             <summary>
             Blob item description
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.BlobId.Kind">
+        <member name="P:Storage.Net.Blobs.Blob.Kind">
             <summary>
             Gets the kind of item
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.BlobId.FolderPath">
+        <member name="P:Storage.Net.Blobs.Blob.IsFolder">
+            <summary>
+            Simply checks if kind of this item is <see cref="F:Storage.Net.Blobs.BlobItemKind.Folder"/>
+            </summary>
+        </member>
+        <member name="P:Storage.Net.Blobs.Blob.IsFile">
+            <summary>
+            Simply checks if kind of this item is <see cref="F:Storage.Net.Blobs.BlobItemKind.File"/>
+            </summary>
+        </member>
+        <member name="P:Storage.Net.Blobs.Blob.FolderPath">
             <summary>
             Gets the folder path containing this item
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.BlobId.Id">
+        <member name="P:Storage.Net.Blobs.Blob.Name">
             <summary>
-            Gets the id of this blob, uniqueue within the folder
+            Gets the name of this blob, uniqueue within the folder. In most providers this is the same as file name.
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.BlobId.Meta">
-            <summary>
-            Contains blob metadata when known, optional.
-            </summary>
-        </member>
-        <member name="P:Storage.Net.Blob.BlobId.FullPath">
-            <summary>
-            Gets full path to this blob which is a combination of folder path and blob name
-            </summary>
-        </member>
-        <member name="P:Storage.Net.Blob.BlobId.Properties">
-            <summary>
-            Custom provider-specific properties
-            </summary>
-        </member>
-        <member name="M:Storage.Net.Blob.BlobId.#ctor(System.String,Storage.Net.Blob.BlobItemKind)">
-            <summary>
-            Create a new instance
-            </summary>
-            <param name="fullId"></param>
-            <param name="kind"></param>
-        </member>
-        <member name="M:Storage.Net.Blob.BlobId.#ctor(System.String,System.String,Storage.Net.Blob.BlobItemKind)">
-            <summary>
-            Creates a new instance
-            </summary>
-            <param name="folderPath"></param>
-            <param name="id"></param>
-            <param name="kind"></param>
-        </member>
-        <member name="M:Storage.Net.Blob.BlobId.ToString">
-            <summary>
-            Full blob info, i.e type, id and path
-            </summary>
-        </member>
-        <member name="M:Storage.Net.Blob.BlobId.Equals(Storage.Net.Blob.BlobId)">
-            <summary>
-            Equality check
-            </summary>
-            <param name="other"></param>
-        </member>
-        <member name="M:Storage.Net.Blob.BlobId.Equals(System.Object)">
-            <summary>
-            Equality check
-            </summary>
-            <param name="other"></param>
-        </member>
-        <member name="M:Storage.Net.Blob.BlobId.GetHashCode">
-            <summary>
-            Hash code calculation
-            </summary>
-        </member>
-        <member name="M:Storage.Net.Blob.BlobId.op_Implicit(System.String)~Storage.Net.Blob.BlobId">
-            <summary>
-            Constructs a file blob by full ID
-            </summary>
-        </member>
-        <member name="T:Storage.Net.Blob.BlobItemKind">
-            <summary>
-            Type of the blob item in the storage
-            </summary>
-        </member>
-        <member name="F:Storage.Net.Blob.BlobItemKind.File">
-            <summary>
-            The file
-            </summary>
-        </member>
-        <member name="F:Storage.Net.Blob.BlobItemKind.Folder">
-            <summary>
-            The folder
-            </summary>
-        </member>
-        <member name="T:Storage.Net.Blob.BlobMeta">
-            <summary>
-            Contains basic metadata about a blob
-            </summary>
-        </member>
-        <member name="M:Storage.Net.Blob.BlobMeta.#ctor(System.Int64,System.String,System.Nullable{System.DateTimeOffset})">
-            <summary>
-            Creates an instance of blob metadata
-            </summary>
-            <param name="size">Blob size</param>
-            <param name="md5">MD5 hash of the blob</param>
-            <param name="lastModificationTime">Last modifiacation time when known</param>
-        </member>
-        <member name="P:Storage.Net.Blob.BlobMeta.Size">
+        <member name="P:Storage.Net.Blobs.Blob.Size">
             <summary>
             Blob size
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.BlobMeta.MD5">
+        <member name="P:Storage.Net.Blobs.Blob.MD5">
             <summary>
             MD5 content hash of the blob. Note that this property can be null if underlying storage has
-            no information about the hash.
+            no information about the hash, or it's very expensive to calculate it, for instance it would require
+            getting a whole content of the blob to hash it.
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.BlobMeta.LastModificationTime">
+        <member name="P:Storage.Net.Blobs.Blob.CreatedTime">
+            <summary>
+            Creation time when known
+            </summary>
+        </member>
+        <member name="P:Storage.Net.Blobs.Blob.LastModificationTime">
             <summary>
             Last modification time when known
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.BlobMeta.Properties">
+        <member name="P:Storage.Net.Blobs.Blob.FullPath">
             <summary>
-            Extra properties that are implementation specific and have no specification. Take an extra care when using these are they are not
-            guaranteed to be present at all or change between implementaitons.
+            Gets full path to this blob which is a combination of folder path and blob name
             </summary>
         </member>
-        <member name="T:Storage.Net.Blob.BlobStorageExtensions">
+        <member name="P:Storage.Net.Blobs.Blob.Properties">
             <summary>
-            Blob storage on steroids. Takes in <see cref="T:Storage.Net.Blob.IBlobStorage"/> and adds a lot of extra useful operations on top we as
+            Custom provider-specific properties. Key names are case-insensitive.
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.TryGetProperty``1(System.String,``0@,``0)">
+            <summary>
+            Try to get property and cast it to a specified type
+            </summary>
+        </member>
+        <member name="P:Storage.Net.Blobs.Blob.Metadata">
+            <summary>
+            User defined metadata. Key names are case-insensitive.
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.TryAddProperties(System.Object[])">
+            <summary>
+            Tries to add properties in pairs when value is not null
+            </summary>
+            <param name="keyValues"></param>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.TryAddPropertiesWithPrefix(System.String,System.Object[])">
+            <summary>
+            Works just like <see cref="M:Storage.Net.Blobs.Blob.TryAddProperties(System.Object[])"/> but prefixes all the keys
+            </summary>
+            <param name="prefix"></param>
+            <param name="keyValues"></param>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.TryAddPropertiesFromDictionary(System.Collections.Generic.IDictionary{System.String,System.String},System.String[])">
+            <summary>
+            Tries to add properties from dictionary by key names
+            </summary>
+            <param name="source"></param>
+            <param name="keyNames"></param>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.#ctor(System.String,Storage.Net.Blobs.BlobItemKind)">
+            <summary>
+            Create a new instance
+            </summary>
+            <param name="fullPath"></param>
+            <param name="kind"></param>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.#ctor(System.String,System.String,Storage.Net.Blobs.BlobItemKind)">
+            <summary>
+            Creates a new instance
+            </summary>
+            <param name="folderPath">Folder path to the blob</param>
+            <param name="name">Name of the blob withing a specific folder.</param>
+            <param name="kind">Blob kind (file or folder)</param>
+        </member>
+        <member name="P:Storage.Net.Blobs.Blob.IsRootFolder">
+            <summary>
+            Returns true if this item is a folder and it's a root folder
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.ToString">
+            <summary>
+            Full blob info, i.e type, id and path
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.Equals(Storage.Net.Blobs.Blob)">
+            <summary>
+            Equality check
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.Equals(System.Object)">
+            <summary>
+            Equality check
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.GetHashCode">
+            <summary>
+            Hash code calculation
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.op_Implicit(System.String)~Storage.Net.Blobs.Blob">
+            <summary>
+            Constructs a file blob by full ID
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.op_Implicit(Storage.Net.Blobs.Blob)~System.String">
+            <summary>
+            Converts blob to string by using full path
+            </summary>
+            <param name="blob"></param>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.AttributesToByteArray">
+            <summary>
+            Converts blob attributes (user metadata to byte array)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.AppendAttributesFromByteArray(System.Byte[])">
+            <summary>
+            Appends attributes from byte array representation
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.PrependPath(System.String)">
+            <summary>
+            Prepends path to this blob's path without modifying blob's properties
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.SetFullPath(System.String)">
+            <summary>
+            Changes full path of this blob without modifying any other property
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Blob.Clone">
+            <summary>
+            Clones blob to best efforts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Storage.Net.Blobs.BlobItemKind">
+            <summary>
+            Type of the blob item in the storage
+            </summary>
+        </member>
+        <member name="F:Storage.Net.Blobs.BlobItemKind.File">
+            <summary>
+            The file
+            </summary>
+        </member>
+        <member name="F:Storage.Net.Blobs.BlobItemKind.Folder">
+            <summary>
+            The folder
+            </summary>
+        </member>
+        <member name="T:Storage.Net.Blobs.BlobStorageExtensions">
+            <summary>
+            Blob storage on steroids. Takes in <see cref="T:Storage.Net.Blobs.IBlobStorage"/> and adds a lot of extra useful operations on top we as
             normal people use every day.
             </summary>
         </member>
-        <member name="M:Storage.Net.Blob.BlobStorageExtensions.ListFilesAsync(Storage.Net.Blob.IBlobStorage,Storage.Net.Blob.ListOptions,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.ListFilesAsync(Storage.Net.Blobs.IBlobStorage,Storage.Net.Blobs.ListOptions,System.Threading.CancellationToken)">
             <summary>
             Returns the list of available files, excluding folders.
             </summary>
-            <param name="provider"></param>
+            <param name="blobStorage"></param>
             <param name="options"></param>
             <param name="cancellationToken"></param>
             <returns>List of blob IDs</returns>
         </member>
-        <member name="M:Storage.Net.Blob.BlobStorageExtensions.ReadTextAsync(Storage.Net.Blob.IBlobStorage,System.String,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.ListAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.Func{Storage.Net.Blobs.Blob,System.Boolean},System.String,System.Boolean,System.Nullable{System.Int32},System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Returns the list of available blobs
+            </summary>
+            <param name="blobStorage"></param>
+            <param name="folderPath"><see cref="P:Storage.Net.Blobs.ListOptions.FolderPath"/></param>
+            <param name="browseFilter"><see cref="P:Storage.Net.Blobs.ListOptions.BrowseFilter"/></param>
+            <param name="filePrefix"><see cref="P:Storage.Net.Blobs.ListOptions.FilePrefix"/></param>
+            <param name="recurse"><see cref="P:Storage.Net.Blobs.ListOptions.Recurse"/></param>
+            <param name="maxResults"><see cref="P:Storage.Net.Blobs.ListOptions.MaxResults"/></param>
+            <param name="includeAttributes"><see cref="P:Storage.Net.Blobs.ListOptions.IncludeAttributes"/></param>
+            <param name="cancellationToken"></param>
+            <returns>List of blob IDs</returns>
+        </member>
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.ReadTextAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.Text.Encoding,System.Threading.CancellationToken)">
             <summary>
             Reads blob content and converts to text in UTF-8 encoding
             </summary>
             <param name="provider"></param>
-            <param name="id">Blob id</param>
+            <param name="fullPath">Blob id</param>
+            <param name="textEncoding">Optional text encoding. When not specified, <see cref="T:System.Text.UTF8Encoding"/> is used.</param>
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="M:Storage.Net.Blob.BlobStorageExtensions.WriteTextAsync(Storage.Net.Blob.IBlobStorage,System.String,System.String,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.WriteTextAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.String,System.Text.Encoding,System.Threading.CancellationToken)">
             <summary>
             Converts text to blob content and writes to storage
             </summary>
             <param name="provider"></param>
-            <param name="id">Blob id</param>
+            <param name="fullPath">Blob to write</param>
             <param name="text">Text to write, treated in UTF-8 encoding</param>
+            <param name="textEncoding">Optional text encoding. When not specified, <see cref="T:System.Text.UTF8Encoding"/> is used.</param>
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="M:Storage.Net.Blob.BlobStorageExtensions.ExistsAsync(Storage.Net.Blob.IBlobStorage,System.String,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.ExistsAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.Threading.CancellationToken)">
             <summary>
             Checksi if blobs exists in the storage
             </summary>
         </member>
-        <member name="M:Storage.Net.Blob.BlobStorageExtensions.DeleteAsync(Storage.Net.Blob.IBlobStorage,System.String,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.DeleteAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.Threading.CancellationToken)">
             <summary>
-            Deletes a single blob
+            Deletes a single blob or a folder recursively.
             </summary>
             <param name="storage"></param>
-            <param name="id"></param>
+            <param name="fullPath"></param>
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="M:Storage.Net.Blob.BlobStorageExtensions.GetMetaAsync(Storage.Net.Blob.IBlobStorage,System.String,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.DeleteAsync(Storage.Net.Blobs.IBlobStorage,System.Collections.Generic.IEnumerable{Storage.Net.Blobs.Blob},System.Threading.CancellationToken)">
+            <summary>
+            Deletes a collection of blobs or folders
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.GetBlobAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.Threading.CancellationToken)">
             <summary>
             Gets basic blob metadata
             </summary>
             <returns>Blob metadata or null if blob doesn't exist</returns>
         </member>
-        <member name="M:Storage.Net.Blob.BlobStorageExtensions.ReadToStreamAsync(Storage.Net.Blob.IBlobStorage,System.String,System.IO.Stream,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.SetBlobAsync(Storage.Net.Blobs.IBlobStorage,Storage.Net.Blobs.Blob,System.Threading.CancellationToken)">
+            <summary>
+            Set blob attributes
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.WriteAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.Byte[],System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Writes byte array to the target storage. If you can, never use large byte arrays, they are terrible!
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.ReadBytesAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Reads blob content as byte array
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.ReadToStreamAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.IO.Stream,System.Threading.CancellationToken)">
             <summary>
             Downloads blob to a stream
             </summary>
             <param name="provider"></param>
-            <param name="id">Blob ID, required</param>
+            <param name="fullPath">Blob ID, required</param>
             <param name="targetStream">Target stream to copy to, required</param>
             <param name="cancellationToken"></param>
             <exception cref="T:System.ArgumentNullException">Thrown when any parameter is null</exception>
             <exception cref="T:System.ArgumentException">Thrown when ID is too long. Long IDs are the ones longer than 50 characters.</exception>
             <exception cref="T:Storage.Net.StorageException">Thrown when blob does not exist, error code set to <see cref="F:Storage.Net.ErrorCode.NotFound"/></exception>
         </member>
-        <member name="M:Storage.Net.Blob.BlobStorageExtensions.ReadToFileAsync(Storage.Net.Blob.IBlobStorage,System.String,System.String,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.ReadToFileAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.String,System.Threading.CancellationToken)">
             <summary>
             Downloads a blob to the local filesystem.
             </summary>
             <param name="provider"></param>
-            <param name="id">Blob ID to download</param>
+            <param name="fullPath">Blob ID to download</param>
             <param name="filePath">Full path to the local file to be downloaded to. If the file exists it will be recreated wtih blob data.</param>
             <param name="cancellationToken"></param>
         </member>
-        <member name="M:Storage.Net.Blob.BlobStorageExtensions.WriteFileAsync(Storage.Net.Blob.IBlobStorage,System.String,System.String,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.WriteFileAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.String,System.Threading.CancellationToken)">
             <summary>
             Uploads local file to the blob storage
             </summary>
             <param name="provider"></param>
-            <param name="id">Blob ID to create or overwrite</param>
+            <param name="fullPath">Blob ID to create or overwrite</param>
             <param name="filePath">Path to local file</param>
             <param name="cancellationToken"></param>
         </member>
-        <member name="M:Storage.Net.Blob.BlobStorageExtensions.CopyToAsync(Storage.Net.Blob.IBlobStorage,System.String,Storage.Net.Blob.IBlobStorage,System.String,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.WriteJsonAsync``1(Storage.Net.Blobs.IBlobStorage,System.String,``0,System.Text.Json.JsonSerializerOptions,System.Text.Encoding,System.Threading.CancellationToken)">
+            <summary>
+            Writes an object to blob storage using <see cref="T:System.Text.Json.JsonSerializer"/>
+            </summary>
+            <typeparam name="T">Objec type</typeparam>
+            <param name="storage"></param>
+            <param name="fullPath">Full path to blob</param>
+            <param name="instance">Object instance to write</param>
+            <param name="options">Optional serialiser options</param>
+            <param name="encoding">Text encoding used to write to the blob storage, defaults to <see cref="T:System.Text.UTF8Encoding"/></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.ReadJsonAsync``1(Storage.Net.Blobs.IBlobStorage,System.String,System.Boolean,System.Text.Json.JsonSerializerOptions,System.Text.Encoding,System.Threading.CancellationToken)">
+            <summary>
+            Reads an object from blob storage using <see cref="T:System.Text.Json.JsonSerializer"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="storage"></param>
+            <param name="fullPath">Full path to blob</param>
+            <param name="ignoreInvalidJson">When true, json that cannot be deserialised is ignored and method simply returns default value</param>
+            <param name="options">Optional serialiser options</param>
+            <param name="encoding">Text encoding used to write to the blob storage, defaults to <see cref="T:System.Text.UTF8Encoding"/></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.CopyToAsync(Storage.Net.Blobs.IBlobStorage,System.String,Storage.Net.Blobs.IBlobStorage,System.String,System.Threading.CancellationToken)">
             <summary>
             Copies blob to another storage
             </summary>
@@ -225,73 +349,159 @@
             <param name="newId">Optional, when specified uses this id in the target storage. If null uses the original ID.</param>
             <param name="cancellationToken"></param>
         </member>
-        <member name="T:Storage.Net.Blob.Files.DiskDirectoryBlobStorage">
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.GetMD5HashAsync(Storage.Net.Blobs.IBlobStorage,Storage.Net.Blobs.Blob,System.Threading.CancellationToken)">
+            <summary>
+            Calculates an MD5 hash of a blob. Comparing to <see cref="P:Storage.Net.Blobs.Blob.MD5"/> field, it always returns
+            a hash, even if the underlying storage doesn't support it natively.
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.RenameAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Rename a blob (folder, file etc.).
+            </summary>
+            <param name="blobStorage"></param>
+            <param name="oldPath"></param>
+            <param name="newPath"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Blobs.BlobStorageExtensions.CreateFolderAsync(Storage.Net.Blobs.IBlobStorage,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new folder in this storage. If storage supports hierarchy, the folder is created as is, otherwise a folder is created by putting a dummy zero size file in that folder.
+            </summary>
+            <param name="blobStorage"></param>
+            <param name="folderPath">Path to the folder</param>
+            <param name="dummyFileName">If storage doesn't support hierary, you can override the dummy file name created in that empty folder.</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Storage.Net.Blobs.Files.DiskDirectoryBlobStorage">
             <summary>
             Blob storage implementation which uses local file system directory
             </summary>
         </member>
-        <member name="M:Storage.Net.Blob.Files.DiskDirectoryBlobStorage.#ctor(System.IO.DirectoryInfo)">
+        <member name="M:Storage.Net.Blobs.Files.DiskDirectoryBlobStorage.#ctor(System.String)">
             <summary>
             Creates an instance in a specific disk directory
-            <param name="directory">Root directory</param>
+            <param name="directoryFullName">Root directory</param>
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.Files.DiskDirectoryBlobStorage.RootDirectory">
-            <summary>
-            Original root directory this storage is mapped to
-            </summary>
-        </member>
-        <member name="M:Storage.Net.Blob.Files.DiskDirectoryBlobStorage.ListAsync(Storage.Net.Blob.ListOptions,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.Files.DiskDirectoryBlobStorage.ListAsync(Storage.Net.Blobs.ListOptions,System.Threading.CancellationToken)">
             <summary>
             Returns the list of blob names in this storage, optionally filtered by prefix
             </summary>
         </member>
-        <member name="M:Storage.Net.Blob.Files.DiskDirectoryBlobStorage.Dispose">
+        <member name="M:Storage.Net.Blobs.Files.DiskDirectoryBlobStorage.Dispose">
             <summary>
             dispose
             </summary>
         </member>
-        <member name="M:Storage.Net.Blob.Files.DiskDirectoryBlobStorage.WriteAsync(System.String,System.IO.Stream,System.Boolean,System.Threading.CancellationToken)">
-            <summary>
-            Streams into file
-            </summary>
-        </member>
-        <member name="M:Storage.Net.Blob.Files.DiskDirectoryBlobStorage.OpenWriteAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Storage.Net.Blob.Files.DiskDirectoryBlobStorage.OpenReadAsync(System.String,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.Files.DiskDirectoryBlobStorage.OpenReadAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Opens file and returns the open stream
             </summary>
         </member>
-        <member name="M:Storage.Net.Blob.Files.DiskDirectoryBlobStorage.DeleteAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.Files.DiskDirectoryBlobStorage.DeleteAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
             <summary>
             Deletes files if they exist
             </summary>
         </member>
-        <member name="M:Storage.Net.Blob.Files.DiskDirectoryBlobStorage.ExistsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.Files.DiskDirectoryBlobStorage.ExistsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
             <summary>
             Checks if files exist on disk
             </summary>
         </member>
-        <member name="M:Storage.Net.Blob.Files.DiskDirectoryBlobStorage.GetMetaAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.Files.DiskDirectoryBlobStorage.GetBlobsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
             <summary>
-            Gets file metadata
+            See interface
             </summary>
         </member>
-        <member name="M:Storage.Net.Blob.Files.DiskDirectoryBlobStorage.OpenTransactionAsync">
+        <member name="M:Storage.Net.Blobs.Files.DiskDirectoryBlobStorage.OpenTransactionAsync">
             <summary>
             Returns empty transaction as filesystem has no transaction support
             </summary>
         </member>
-        <member name="T:Storage.Net.Blob.IBlobStorage">
+        <member name="T:Storage.Net.Blobs.GenericBlobStorage">
+            <summary>
+            Provides the most generic form of the blob storage implementation
+            </summary>
+        </member>
+        <member name="P:Storage.Net.Blobs.GenericBlobStorage.CanListHierarchy">
+            <summary>
+            Return true if storage can list hierarchy in one call
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.ListAsync(Storage.Net.Blobs.ListOptions,System.Threading.CancellationToken)">
+            <summary>
+            Lists blobs
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.ListAtAsync(System.String,Storage.Net.Blobs.ListOptions,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.DeleteAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Delete all blobs
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.DeleteSingleAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Deletes one
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.ExistsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.ExistsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.GetBlobsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.GetBlobAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.OpenReadAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.OpenTransactionAsync">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.WriteAsync(System.String,System.IO.Stream,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.SetBlobsAsync(System.Collections.Generic.IEnumerable{Storage.Net.Blobs.Blob},System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.GenericBlobStorage.Dispose">
+            <summary>
+            Dispose any unused resources
+            </summary>
+        </member>
+        <member name="T:Storage.Net.Blobs.IBlobStorage">
             <summary>
             Slim interface providing access to blob storage.
             </summary>
         </member>
-        <member name="M:Storage.Net.Blob.IBlobStorage.ListAsync(Storage.Net.Blob.ListOptions,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.IBlobStorage.ListAsync(Storage.Net.Blobs.ListOptions,System.Threading.CancellationToken)">
             <summary>
             Returns the list of available blobs
             </summary>
@@ -299,86 +509,101 @@
             <param name="cancellationToken"></param>
             <returns>List of blob IDs</returns>
         </member>
-        <member name="M:Storage.Net.Blob.IBlobStorage.WriteAsync(System.String,System.IO.Stream,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.IBlobStorage.WriteAsync(System.String,System.IO.Stream,System.Boolean,System.Threading.CancellationToken)">
             <summary>
-            Creates a new blob and uploads data intor it. If the blob already exists it will be
+            Uploads data to a blob from stream.
             overwritten.
             </summary>
-            <param name="id">Blob ID</param>
-            <param name="sourceStream">Source stream, must be readable and support Length</param>
+            <param name="fullPath">Blob metadata</param>
+            <param name="dataStream">Stream to upload from</param>
             <param name="cancellationToken"></param>
             <param name="append">When true, appends to the file instead of writing a new one.</param>
             <returns>Writeable stream</returns>
             <exception cref="T:System.ArgumentNullException">Thrown when any parameter is null</exception>
             <exception cref="T:System.ArgumentException">Thrown when ID is too long. Long IDs are the ones longer than 50 characters.</exception>
         </member>
-        <member name="M:Storage.Net.Blob.IBlobStorage.OpenWriteAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
-            <summary>
-            Creates a new blob and opens a writeable stream for it. If the blob already exists it will be
-            overwritten. Please note that <see cref="M:Storage.Net.Blob.IBlobStorage.WriteAsync(System.String,System.IO.Stream,System.Boolean,System.Threading.CancellationToken)"/> is always
-            more effective than this method, because not all of the providers support holding a write stream natively and
-            some will incur workaround options to support this.
-            </summary>
-            <param name="id">Blob ID</param>
-            <param name="cancellationToken"></param>
-            <param name="append">When true, appends to the file instead of writing a new one.</param>
-            <returns>Writeable stream</returns>
-            <exception cref="T:System.ArgumentNullException">Thrown when any parameter is null</exception>
-            <exception cref="T:System.ArgumentException">Thrown when ID is too long. Long IDs are the ones longer than 50 characters.</exception>
-        </member>
-        <member name="M:Storage.Net.Blob.IBlobStorage.OpenReadAsync(System.String,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.IBlobStorage.OpenReadAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Opens the blob stream to read.
             </summary>
-            <param name="id">Blob ID, required</param>
+            <param name="fullPath">Blob's full path</param>
             <param name="cancellationToken"></param>
             <returns>Stream in an open state, or null if blob doesn't exist by this ID. It is your responsibility to close and dispose this
             stream after use.</returns>
             <exception cref="T:System.ArgumentNullException">Thrown when any parameter is null</exception>
             <exception cref="T:System.ArgumentException">Thrown when ID is too long. Long IDs are the ones longer than 50 characters.</exception>
         </member>
-        <member name="M:Storage.Net.Blob.IBlobStorage.DeleteAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.IBlobStorage.DeleteAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
             <summary>
-            Deletes a blob by id
+            Deletes an object by it's full path.
             </summary>
-            <param name="ids">Blob IDs to delete.</param>
+            <param name="fullPaths">Path to delete. If this path points to a folder, the folder is deleted recursively.</param>
             <param name="cancellationToken"></param>
             <exception cref="T:System.ArgumentNullException">Thrown when ID is null.</exception>
             <exception cref="T:System.ArgumentException">Thrown when ID is too long. Long IDs are the ones longer than 50 characters.</exception>
         </member>
-        <member name="M:Storage.Net.Blob.IBlobStorage.ExistsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.IBlobStorage.ExistsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
             <summary>
             Checksi if blobs exists in the storage
             </summary>
-            <param name="ids">List of ids</param>
+            <param name="fullPaths">List of paths to blobs</param>
             <param name="cancellationToken"></param>
             <returns>List of results of true and false indicating existence</returns>
         </member>
-        <member name="M:Storage.Net.Blob.IBlobStorage.GetMetaAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Blobs.IBlobStorage.GetBlobsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
             <summary>
-            Gets basic blob metadata
+            Gets blob information which is useful for retreiving blob metadata
             </summary>
-            <param name="ids">Blob id</param>
-            <param name="cancellationToken"></param>
-            <returns>Blob metadata or null if blob doesn't exist</returns>
         </member>
-        <member name="M:Storage.Net.Blob.IBlobStorage.OpenTransactionAsync">
+        <member name="M:Storage.Net.Blobs.IBlobStorage.SetBlobsAsync(System.Collections.Generic.IEnumerable{Storage.Net.Blobs.Blob},System.Threading.CancellationToken)">
+            <summary>
+            Set blob information which is useful for setting blob attributes (user metadata etc.)
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.IBlobStorage.OpenTransactionAsync">
             <summary>
             Starts a new transaction
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Storage.Net.Blob.ListOptions">
+        <member name="T:Storage.Net.Blobs.IExtendedBlobStorage">
+            <summary>
+            Extended blob storage operations that may be supported natively by a provider as are slow otherwise.
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.IExtendedBlobStorage.RenameAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Rename a blob (folder or file)
+            </summary>
+            <param name="oldPath"></param>
+            <param name="newPath"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Storage.Net.Blobs.IHierarchicalBlobStorage">
+            <summary>
+            Blob Storage that supports hierarchy
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.IHierarchicalBlobStorage.CreateFolderAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new folder
+            </summary>
+            <param name="folderPath">Path to the new folder.</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Storage.Net.Blobs.ListOptions">
             <summary>
             Options for listing storage content
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.ListOptions.FolderPath">
+        <member name="P:Storage.Net.Blobs.ListOptions.FolderPath">
             <summary>
             Folder path to start browsing from. When not set scanning starts from the root folder.
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.ListOptions.BrowseFilter">
+        <member name="P:Storage.Net.Blobs.ListOptions.BrowseFilter">
             <summary>
             Gets or sets a browsing filter used by some implementations which can filter out results before returning it to you.
             This is useful to minimise amount of RAM taken when returning the results and then filtering them on client side.
@@ -386,55 +611,248 @@
             only be used when you're concerned about RAM usage.
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.ListOptions.FilePrefix">
+        <member name="P:Storage.Net.Blobs.ListOptions.FilePrefix">
             <summary>
             Prefix to filter file name by. Folders are not affected by this filter. If you list files recursively
             the prefix is applied in every folder.
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.ListOptions.Recurse">
+        <member name="P:Storage.Net.Blobs.ListOptions.Recurse">
             <summary>
             When true, operation will recursively navigate down the folders.
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.ListOptions.MaxResults">
+        <member name="P:Storage.Net.Blobs.ListOptions.MaxResults">
             <summary>
             When set, limits the maximum amount of results. The count affects all object counts, including files and folders.
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.ListOptions.IncludeMetaWhenKnown">
+        <member name="P:Storage.Net.Blobs.ListOptions.IncludeAttributes">
             <summary>
-            When set, includes blob metadata in the response if the provider supports it. False by default
+            When set, includes blob attributes in the response if the provider supports it. False by default
             only because metadata consumes more memory in response object, although most of the providers do not
             have any overhead in creating this metadata.
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.ListOptions.ListProgressCallback">
+        <member name="M:Storage.Net.Blobs.ListOptions.IsMatch(Storage.Net.Blobs.Blob)">
             <summary>
-            When set, an implementing provider might be able to send notification on progress callback if it supports them.
-            First parameter indicates number of items already listed, second - total number of items (if known).
+            Helper method that returns true if a <see cref="T:Storage.Net.Blobs.Blob"/> matches these list options.
             </summary>
         </member>
-        <member name="P:Storage.Net.Blob.ListOptions.MaxDegreeOfParalellism">
-            <summary>
-            When supported, sets the maximum number of threads to be used for listing operations
-            </summary>
-        </member>
-        <member name="M:Storage.Net.Blob.ListOptions.IsMatch(Storage.Net.Blob.BlobId)">
-            <summary>
-            Helper method that returns true if a <see cref="T:Storage.Net.Blob.BlobId"/> matches these list options.
-            </summary>
-        </member>
-        <member name="M:Storage.Net.Blob.ListOptions.Add(System.Collections.Generic.ICollection{Storage.Net.Blob.BlobId},System.Collections.Generic.ICollection{Storage.Net.Blob.BlobId})">
+        <member name="M:Storage.Net.Blobs.ListOptions.Add(System.Collections.Generic.ICollection{Storage.Net.Blobs.Blob},System.Collections.Generic.ICollection{Storage.Net.Blobs.Blob})">
             <summary>
             Only for internal use
             </summary>
         </member>
-        <member name="M:Storage.Net.Blob.ListOptions.Clone">
+        <member name="M:Storage.Net.Blobs.ListOptions.Clone">
             <summary>
             Clones list options
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Storage.Net.Blobs.Sinks.Impl.GZipSink">
+            <summary>
+            GZip transformation sink
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Sinks.Impl.GZipSink.#ctor(System.IO.Compression.CompressionLevel)">
+            <summary>
+            
+            </summary>
+            <param name="compressionLevel"></param>
+        </member>
+        <member name="M:Storage.Net.Blobs.Sinks.Impl.GZipSink.OpenReadStream(System.String,System.IO.Stream)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Sinks.Impl.GZipSink.OpenWriteStream(System.String,System.IO.Stream)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Storage.Net.Blobs.Sinks.Impl.SymmetricEncryptionSink">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Sinks.Impl.SymmetricEncryptionSink.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Sinks.Impl.SymmetricEncryptionSink.OpenReadStream(System.String,System.IO.Stream)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Sinks.Impl.SymmetricEncryptionSink.OpenWriteStream(System.String,System.IO.Stream)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Storage.Net.Blobs.Sinks.ITransformSink">
+            <summary>
+            Data transformation sink that can transform both read and write streams on <see cref="T:Storage.Net.Blobs.IBlobStorage"/>
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.Sinks.ITransformSink.OpenReadStream(System.String,System.IO.Stream)">
+            <summary>
+            Opens a stream for reading based on opened original stream
+            </summary>
+            <param name="fullPath">Full path to file</param>
+            <param name="parentStream">Parent stream that is already open</param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Blobs.Sinks.ITransformSink.OpenWriteStream(System.String,System.IO.Stream)">
+            <summary>
+            Opens a stream for writing based on opened original stream
+            </summary>
+            <param name="fullPath">Full path to file</param>
+            <param name="parentStream">Source stream to write</param>
+            <returns></returns>
+        </member>
+        <member name="T:Storage.Net.Blobs.StorageSourceStream">
+            <summary>
+            Fixes common issues in streams that different implementations are really silly about
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.StorageSourceStream.#ctor(System.IO.Stream)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Storage.Net.Blobs.StorageSourceStream.CanRead">
+            <summary>
+            No change
+            </summary>
+        </member>
+        <member name="P:Storage.Net.Blobs.StorageSourceStream.CanSeek">
+            <summary>
+            Always true
+            </summary>
+        </member>
+        <member name="P:Storage.Net.Blobs.StorageSourceStream.CanWrite">
+            <summary>
+            Always false
+            </summary>
+        </member>
+        <member name="P:Storage.Net.Blobs.StorageSourceStream.Length">
+            <summary>
+            No change
+            </summary>
+        </member>
+        <member name="P:Storage.Net.Blobs.StorageSourceStream.Position">
+            <summary>
+            No change
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.StorageSourceStream.Flush">
+            <summary>
+            No change
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.StorageSourceStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            see <see cref="M:Storage.Net.Blobs.StorageSourceStream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)"/>
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.StorageSourceStream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            No change, but remembers that read was performed
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.StorageSourceStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Only allows seeks to beginning if no reads were performed
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.StorageSourceStream.SetLength(System.Int64)">
+            <summary>
+            Change to "not supported"
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.StorageSourceStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Change to "not supported"
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.StorageSourceStream.Dispose(System.Boolean)">
+            <summary>
+            No change
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:Storage.Net.Blobs.VirtualStorage">
+            <summary>
+            Allows to combine several storage providers (or even of the same type) in one virtual storage interface.
+            Providers are distinguished using a prefix. Essentially this allows to mount providers in a virtual filesystem.
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.#ctor">
+            <summary>
+            Creates an instance
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.Mount(System.String,Storage.Net.Blobs.IBlobStorage)">
+            <summary>
+            Mounts a storage to virtual path
+            </summary>
+            <param name="path"></param>
+            <param name="storage"></param>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.Explode(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Simpler version of Explode that does not need to match to the result
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.DeleteAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+             <summary>
+            
+             </summary>
+             <param name="fullPaths"></param>
+             <param name="cancellationToken"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.Dispose">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.ExistsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.GetBlobsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.ListAsync(Storage.Net.Blobs.ListOptions,System.Threading.CancellationToken)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.OpenReadAsync(System.String,System.Threading.CancellationToken)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.SetBlobsAsync(System.Collections.Generic.IEnumerable{Storage.Net.Blobs.Blob},System.Threading.CancellationToken)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.OpenTransactionAsync">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Storage.Net.Blobs.VirtualStorage.WriteAsync(System.String,System.IO.Stream,System.Boolean,System.Threading.CancellationToken)">
+             <summary>
+            
+             </summary>
         </member>
         <member name="T:Storage.Net.ConnectionString.IConnectionFactory">
             <summary>
@@ -448,20 +866,9 @@
             string it returns null.
             </summary>
         </member>
-        <member name="M:Storage.Net.ConnectionString.IConnectionFactory.CreateKeyValueStorage(Storage.Net.ConnectionString.StorageConnectionString)">
-            <summary>
-            Creates a key-value storage instance from connection string if possible. When this factory does not support this connection
-            string it returns null.
-            </summary>
-        </member>
-        <member name="M:Storage.Net.ConnectionString.IConnectionFactory.CreateMessagePublisher(Storage.Net.ConnectionString.StorageConnectionString)">
+        <member name="M:Storage.Net.ConnectionString.IConnectionFactory.CreateMessenger(Storage.Net.ConnectionString.StorageConnectionString)">
             <summary>
             Creates a message publisher
-            </summary>
-        </member>
-        <member name="M:Storage.Net.ConnectionString.IConnectionFactory.CreateMessageReceiver(Storage.Net.ConnectionString.StorageConnectionString)">
-            <summary>
-            Creates a message receiver
             </summary>
         </member>
         <member name="T:Storage.Net.ConnectionString.StorageConnectionString">
@@ -475,9 +882,31 @@
             </summary>
             <param name="connectionString"></param>
         </member>
+        <member name="P:Storage.Net.ConnectionString.StorageConnectionString.Item(System.String)">
+            <summary>
+            Gets or sets connection string parameters
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Storage.Net.ConnectionString.StorageConnectionString.IsNative">
+            <summary>
+            Determines if this is a native connection string
+            </summary>
+        </member>
+        <member name="P:Storage.Net.ConnectionString.StorageConnectionString.Native">
+            <summary>
+            Returns native connection string, or null if connection string is not native
+            </summary>
+        </member>
         <member name="P:Storage.Net.ConnectionString.StorageConnectionString.ConnectionString">
             <summary>
             Original connection string
+            </summary>
+        </member>
+        <member name="P:Storage.Net.ConnectionString.StorageConnectionString.Parameters">
+            <summary>
+            Connection string parameters exposed as key-value pairs
             </summary>
         </member>
         <member name="P:Storage.Net.ConnectionString.StorageConnectionString.Prefix">
@@ -498,7 +927,13 @@
             Get connection string parameter by name
             </summary>
             <param name="parameterName"></param>
-            <returns>Parameter value. If parameter is not set returns an empty string</returns>
+            <returns>Parameter value. If parameter is not set returns null.</returns>
+        </member>
+        <member name="M:Storage.Net.ConnectionString.StorageConnectionString.ToString">
+            <summary>
+            Returns a string representation of the connection string
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Storage.Net.EmptyTransaction">
             <summary>
@@ -506,6 +941,11 @@
             </summary>
         </member>
         <member name="P:Storage.Net.EmptyTransaction.Instance">
+            <summary>
+            Returns empty transaction instance
+            </summary>
+        </member>
+        <member name="P:Storage.Net.EmptyTransaction.TaskInstance">
             <summary>
             Returns empty transaction instance
             </summary>
@@ -541,30 +981,9 @@
             Operation failed because a key already exists
             </summary>
         </member>
-        <member name="T:Storage.Net.Exceptions">
+        <member name="F:Storage.Net.ErrorCode.Conflict">
             <summary>
-               A strongly-typed resource class, for looking up localized strings, etc.
-            </summary>
-        </member>
-        <member name="P:Storage.Net.Exceptions.ResourceManager">
-            <summary>
-               Returns the cached ResourceManager instance used by this class.
-            </summary>
-        </member>
-        <member name="P:Storage.Net.Exceptions.Culture">
-            <summary>
-               Overrides the current thread's CurrentUICulture property for all
-               resource lookups using this strongly typed resource class.
-            </summary>
-        </member>
-        <member name="P:Storage.Net.Exceptions.BlobId_TooLong">
-            <summary>
-               Looks up a localized string similar to blob ID cannot exceed {0} characters.
-            </summary>
-        </member>
-        <member name="P:Storage.Net.Exceptions.BlobPrefix_TooLong">
-            <summary>
-               Looks up a localized string similar to blob prefix cannot exceed {0} characters.
+            A conflict
             </summary>
         </member>
         <member name="T:Storage.Net.Factory">
@@ -579,36 +998,24 @@
         </member>
         <member name="M:Storage.Net.Factory.FromConnectionString(Storage.Net.IBlobStorageFactory,System.String)">
             <summary>
-            Creates a blob stogage instance from a connection string
+            Creates a blob storage instance from a connection string
             </summary>
         </member>
-        <member name="M:Storage.Net.Factory.FromConnectionString(Storage.Net.IKeyValueStorageFactory,System.String)">
-            <summary>
-            Creates a key-value storage instance from a connections tring
-            </summary>
-        </member>
-        <member name="M:Storage.Net.Factory.PublisherFromConnectionString(Storage.Net.IMessagingFactory,System.String)">
+        <member name="M:Storage.Net.Factory.MessengerFromConnectionString(Storage.Net.IMessagingFactory,System.String)">
             <summary>
             Creates message publisher
             </summary>
         </member>
-        <member name="M:Storage.Net.Factory.ReceiverFromConnectionString(Storage.Net.IMessagingFactory,System.String)">
-            <summary>
-            Creates message receiver
-            </summary>
-        </member>
-        <member name="M:Storage.Net.Factory.CsvFiles(Storage.Net.IKeyValueStorageFactory,System.IO.DirectoryInfo)">
-            <summary>
-            Creates a new instance of CSV file storage
-            </summary>
-            <param name="factory"></param>
-            <param name="rootDir"></param>
-        </member>
-        <member name="M:Storage.Net.Factory.DirectoryFiles(Storage.Net.IBlobStorageFactory,System.IO.DirectoryInfo)">
+        <member name="M:Storage.Net.Factory.DirectoryFiles(Storage.Net.IBlobStorageFactory,System.String)">
             <summary>
             Creates an instance in a specific disk directory
             <param name="factory"></param>
-            <param name="directory">Root directory</param>
+            <param name="directoryFullName">Root directory</param>
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Factory.ZipFile(Storage.Net.IBlobStorageFactory,System.String)">
+            <summary>
+            Zip file
             </summary>
         </member>
         <member name="M:Storage.Net.Factory.InMemory(Storage.Net.IBlobStorageFactory)">
@@ -619,7 +1026,14 @@
             <param name="factory">Factory reference</param>
             <returns>In-memory blob storage instance</returns>
         </member>
-        <member name="M:Storage.Net.Factory.InMemoryPublisher(Storage.Net.IMessagingFactory,System.String)">
+        <member name="M:Storage.Net.Factory.Virtual(Storage.Net.IBlobStorageFactory)">
+            <summary>
+            Creates a virtual storage where you can mount other storage providers to a specific virtual directory
+            </summary>
+            <param name="factory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Factory.InMemory(Storage.Net.IMessagingFactory,System.String)">
             <summary>
             Creates a message publisher which holds messages in memory.
             </summary>
@@ -627,12 +1041,49 @@
             <param name="name">Memory buffer name. Publishers with the same name will contain identical messages. Querying a publisher again
             with the same name returns an identical publisher. To create a receiver for this memory bufffer use the same name.</param>
         </member>
-        <member name="M:Storage.Net.Factory.InMemoryReceiver(Storage.Net.IMessagingFactory,System.String)">
+        <member name="M:Storage.Net.Factory.Disk(Storage.Net.IMessagingFactory,System.String)">
             <summary>
-            Creates a message receiver to receive messages from a specified memory buffer.
+            Creates a message publisher that uses local disk directory as a backing store
             </summary>
             <param name="factory"></param>
-            <param name="name">Memory buffer name. Use the name used when you've created a publisher to receive messages from that buffer.</param>
+            <param name="path">Path to directory to use as a backing store. If it doesn't exist, it will be created.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Factory.HandleLargeContent(Storage.Net.Messaging.IMessenger,Storage.Net.Blobs.IBlobStorage,System.Int32,System.Func{Storage.Net.Messaging.QueueMessage,System.String})">
+            <summary>
+            Wraps message publisher so that if it's content is larger than <paramref name="minSizeLarge"/>, the content is uploaded
+            to blob storage and cleared on the message itself. The message is then stamped with a property <see cref="F:Storage.Net.Messaging.QueueMessage.LargeMessageContentHeaderName"/>
+            which contains blob path of the message content.
+            </summary>
+            <param name="messenger">Message publisher to wrap</param>
+            <param name="offloadStorage">Blob storage used to offload the message content</param>
+            <param name="minSizeLarge">Threshold size</param>
+            <param name="blobPathGenerator">Optional generator for blob path used to save large message content.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Factory.WithSinks(Storage.Net.Blobs.IBlobStorage,Storage.Net.Blobs.Sinks.ITransformSink[])">
+            <summary>
+            
+            </summary>
+            <param name="blobStorage"></param>
+            <param name="sinks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Factory.WithGzipCompression(Storage.Net.Blobs.IBlobStorage,System.IO.Compression.CompressionLevel)">
+            <summary>
+            Wraps blob storage into zip compression
+            </summary>
+            <param name="blobStorage"></param>
+            <param name="compressionLevel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Factory.WithSymmetricEncryption(Storage.Net.Blobs.IBlobStorage,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="blobStorage"></param>
+            <param name="encryptionKey"></param>
+            <returns></returns>
         </member>
         <member name="T:Storage.Net.GenericValidation">
             <summary>
@@ -645,15 +1096,20 @@
             </summary>
             <param name="prefix"></param>
         </member>
-        <member name="M:Storage.Net.GenericValidation.CheckBlobId(System.String)">
+        <member name="M:Storage.Net.GenericValidation.CheckBlobFullPath(System.String)">
             <summary>
-            Validates blob ID
+            Validates blob full path
             </summary>
-            <param name="id"></param>
+            <param name="fullPath"></param>
         </member>
-        <member name="M:Storage.Net.GenericValidation.CheckBlobId(System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:Storage.Net.GenericValidation.CheckBlobFullPaths(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
-            Checks blob ID for generic rules
+            Checks blob full path for generic rules
+            </summary>
+        </member>
+        <member name="M:Storage.Net.GenericValidation.CheckBlobFullPaths(System.Collections.Generic.IEnumerable{Storage.Net.Blobs.Blob})">
+            <summary>
+            Checks blob full path for generic rules
             </summary>
         </member>
         <member name="M:Storage.Net.GenericValidation.CheckSourceStream(System.IO.Stream)">
@@ -682,362 +1138,172 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage">
+        <member name="T:Storage.Net.IVirtualStorage">
             <summary>
-            Creates an abstaction of <see cref="T:Storage.Net.KeyValue.IKeyValueStorage"/> in a CSV file structure.
-            Works relative to the root directory specified in the constructor.
-            Each table will be a separate subfolder, where files are partitions.
+            Virtual storage
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.#ctor(System.IO.DirectoryInfo)">
+        <member name="M:Storage.Net.IVirtualStorage.Mount(System.String,Storage.Net.Blobs.IBlobStorage)">
             <summary>
-            Creates a new instance of CSV file storage
-            </summary>
-            <param name="rootDir"></param>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="P:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.HasOptimisticConcurrency">
-            <summary>
-            See interface documentation
+            Mounts a storage to virtual path
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.ListTableNamesAsync">
+        <member name="T:Storage.Net.KnownParameter">
             <summary>
-            See interface documentation
+            Known parameter names enouraged to be used in connection strings
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.DeleteAsync(System.String)">
+        <member name="F:Storage.Net.KnownParameter.Native">
             <summary>
-            See interface documentation
+            Indicates that this connection string is native
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.GetAsync(System.String,Storage.Net.KeyValue.Key)">
+        <member name="F:Storage.Net.KnownParameter.AccountName">
             <summary>
-            See interface documentation
+            Account or storage name
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.InsertAsync(System.String,System.Collections.Generic.IReadOnlyCollection{Storage.Net.KeyValue.Value})">
+        <member name="F:Storage.Net.KnownParameter.KeyOrPassword">
             <summary>
-            See interface documentation
+            Key or password
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.InsertOrReplaceAsync(System.String,System.Collections.Generic.IReadOnlyCollection{Storage.Net.KeyValue.Value})">
+        <member name="F:Storage.Net.KnownParameter.KeyId">
             <summary>
-            See interface
+            Key ID
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.UpdateAsync(System.String,System.Collections.Generic.IReadOnlyCollection{Storage.Net.KeyValue.Value})">
+        <member name="F:Storage.Net.KnownParameter.SessionToken">
             <summary>
-            See interface documentation
+            Session token
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.MergeAsync(System.String,System.Collections.Generic.IReadOnlyCollection{Storage.Net.KeyValue.Value})">
+        <member name="F:Storage.Net.KnownParameter.LocalProfileName">
             <summary>
-            See interface documentation
+            Name of a local profile
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.DeleteAsync(System.String,System.Collections.Generic.IReadOnlyCollection{Storage.Net.KeyValue.Key})">
+        <member name="F:Storage.Net.KnownParameter.BucketName">
             <summary>
-            See interface documentation
+            Bucket name
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.Get(System.String,System.String,System.String,System.Int32)">
+        <member name="F:Storage.Net.KnownParameter.Region">
             <summary>
-            See interface documentation
+            Region
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Files.CsvFileKeyValueStorage.Dispose">
+        <member name="F:Storage.Net.KnownParameter.UseDevelopmentStorage">
             <summary>
-            Does nothing as no handles are kept open
+            
             </summary>
         </member>
-        <member name="T:Storage.Net.KeyValue.IKeyValueStorage">
+        <member name="F:Storage.Net.KnownParameter.VaultUri">
             <summary>
-            Common interface for working with key-value storage
+            
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.IKeyValueStorage.ListTableNamesAsync">
+        <member name="F:Storage.Net.KnownParameter.TenantId">
             <summary>
-            Returns the list of all table names in the storage.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Storage.Net.KeyValue.IKeyValueStorage.DeleteAsync(System.String)">
-            <summary>
-            Deletes entire table. If table doesn't exist no errors are raised.
-            </summary>
-            <param name="tableName">Name of the table to delete. Passing null raises <see cref="T:System.ArgumentNullException"/></param>
-        </member>
-        <member name="M:Storage.Net.KeyValue.IKeyValueStorage.GetAsync(System.String,Storage.Net.KeyValue.Key)">
-            <summary>
-            Gets values by key
-            </summary>
-            <param name="tableName">Table name, required.</param>
-            <param name="key">Row key to look up against. The key must have partition key populated, however row key is optional.
-            When row key is not set, this method returns all of the values in a specifi</param>
-            <returns>
-            List of table values in the table's partition. This method never returns null and if no records
-            are found an empty collection is returned.
-            </returns>
-        </member>
-        <member name="M:Storage.Net.KeyValue.IKeyValueStorage.InsertAsync(System.String,System.Collections.Generic.IReadOnlyCollection{Storage.Net.KeyValue.Value})">
-            <summary>
-            Inserts values in the table.
-            </summary>
-            <param name="tableName">Table name, required.</param>
-            <param name="values">values to insert, required. The values can belong to different partitions.</param>
-            <exception cref="T:Storage.Net.StorageException">
-            If the row already exists thvalues this exception with <see cref="F:Storage.Net.ErrorCode.DuplicateKey"/>.
-            Note that exception is thrown only for partiton batch. If values contains more than one partition to insert
-            some of them may succeed and some may fail.
-            </exception>
-        </member>
-        <member name="M:Storage.Net.KeyValue.IKeyValueStorage.InsertOrReplaceAsync(System.String,System.Collections.Generic.IReadOnlyCollection{Storage.Net.KeyValue.Value})">
-            <summary>
-            Inserts values in the table, and if they exist replaces them with a new value.
-            </summary>
-            <param name="tableName">Table name, required.</param>
-            <param name="values">values to insert, required. The values can belong to different partitions.</param>
-            <exception cref="T:Storage.Net.StorageException">
-            If input values have duplicated keys thvalues this exception with <see cref="F:Storage.Net.ErrorCode.DuplicateKey"/>
-            </exception>
-        </member>
-        <member name="M:Storage.Net.KeyValue.IKeyValueStorage.UpdateAsync(System.String,System.Collections.Generic.IReadOnlyCollection{Storage.Net.KeyValue.Value})">
-            <summary>
-            Updates multiple values. Note that all the values must belong to the same partition.
+            
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.IKeyValueStorage.MergeAsync(System.String,System.Collections.Generic.IReadOnlyCollection{Storage.Net.KeyValue.Value})">
+        <member name="F:Storage.Net.KnownParameter.ClientId">
             <summary>
-            Merges multiple values. Note that all values must belong to the same partition
+            
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.IKeyValueStorage.DeleteAsync(System.String,System.Collections.Generic.IReadOnlyCollection{Storage.Net.KeyValue.Key})">
+        <member name="F:Storage.Net.KnownParameter.ClientSecret">
             <summary>
-            Deletes multiple values
+            
             </summary>
         </member>
-        <member name="T:Storage.Net.KeyValue.Key">
+        <member name="F:Storage.Net.KnownParameter.MsiEnabled">
             <summary>
-            ID structure of the <see cref="T:Storage.Net.KeyValue.Value"/>
+            
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Key.#ctor(System.String,System.String)">
+        <member name="F:Storage.Net.KnownParameter.IsLocalEmulator">
             <summary>
-            Constructs an instance of <see cref="T:Storage.Net.KeyValue.Key"/>
-            </summary>
-            <param name="partitionKey">Partition key</param>
-            <param name="rowKey">Row key</param>
-        </member>
-        <member name="P:Storage.Net.KeyValue.Key.PartitionKey">
-            <summary>
-            Partition key
+            
             </summary>
         </member>
-        <member name="P:Storage.Net.KeyValue.Key.RowKey">
+        <member name="T:Storage.Net.KnownPrefix">
             <summary>
-            Row key
+            Known storage account prefixes
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Key.Equals(Storage.Net.KeyValue.Key)">
+        <member name="F:Storage.Net.KnownPrefix.AwsS3">
             <summary>
-            Equals
+            Amazon S3
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Key.Equals(System.Object)">
+        <member name="F:Storage.Net.KnownPrefix.Databricks">
             <summary>
-            Equals
+            Databricks on Azure or AWS
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Key.GetHashCode">
+        <member name="F:Storage.Net.KnownPrefix.AzureDataLakeGen1">
             <summary>
-            Hash code
+            Azure Data Lake Gen 1
             </summary>
         </member>
-        <member name="T:Storage.Net.KeyValue.KeyValueStorageExtensions">
+        <member name="F:Storage.Net.KnownPrefix.AzureDataLakeGen2">
             <summary>
-            <see cref="T:Storage.Net.KeyValue.IKeyValueStorage"/> on steroids
+            Azure Data Lake Gen 2
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.KeyValueStorageExtensions.GetSingleAsync(Storage.Net.KeyValue.IKeyValueStorage,System.String,Storage.Net.KeyValue.Key)">
+        <member name="F:Storage.Net.KnownPrefix.AzureDataLake">
             <summary>
-            Gets first value by key
-            </summary>
-            <param name="storage"></param>
-            <param name="tableName"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Storage.Net.KeyValue.KeyValueStorageExtensions.GetSingleAsync(Storage.Net.KeyValue.IKeyValueStorage,System.String,System.String,System.String)">
-            <summary>
-            Gets first value by key
-            </summary>
-            <param name="storage"></param>
-            <param name="tableName"></param>
-            <param name="partitionKey"></param>
-            <param name="rowKey"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Storage.Net.KeyValue.KeyValueStorageExtensions.DeleteAsync(Storage.Net.KeyValue.IKeyValueStorage,System.String,Storage.Net.KeyValue.Key)">
-            <summary>
-            Deletes record by key
+            Azure Data Lake latest generation, currently Gen 2
             </summary>
         </member>
-        <member name="T:Storage.Net.KeyValue.Value">
+        <member name="F:Storage.Net.KnownPrefix.AzureKeyVault">
             <summary>
-            Represents a table row in table data structure.
+            Azure Key Vault
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Value.#ctor(System.String,System.String)">
+        <member name="F:Storage.Net.KnownPrefix.AzureBlobStorage">
             <summary>
-            Creates a new instance from partition key and row key
+            Azure Blob Storage
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Value.#ctor(Storage.Net.KeyValue.Key)">
+        <member name="F:Storage.Net.KnownPrefix.AzureEventHub">
             <summary>
-            Creates a new instance from <see cref="T:Storage.Net.KeyValue.Key"/>
-            </summary>
-            <param name="id"></param>
-        </member>
-        <member name="P:Storage.Net.KeyValue.Value.Id">
-            <summary>
-            Row ID
+            Azure Event Hubs
             </summary>
         </member>
-        <member name="P:Storage.Net.KeyValue.Value.PartitionKey">
+        <member name="F:Storage.Net.KnownPrefix.AzureFilesStorage">
             <summary>
-            Partition key
+            Azure File Storage
             </summary>
         </member>
-        <member name="P:Storage.Net.KeyValue.Value.RowKey">
+        <member name="F:Storage.Net.KnownPrefix.AzureTableStorage">
             <summary>
-            Row key
+            Microsoft Azure Table Storage
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Value.Equals(Storage.Net.KeyValue.Value)">
+        <member name="F:Storage.Net.KnownPrefix.AzureQueueStorage">
             <summary>
-            Checks row equality
+            Azure Storage Queues
             </summary>
         </member>
-        <member name="M:Storage.Net.KeyValue.Value.GetEnumerator">
-            <summary>
-            Get enumerator for cells inside the row
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.System#Collections#IEnumerable#GetEnumerator">
-            <summary>
-            Get enumerator for cells inside the row
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.Add(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
-            <summary>
-            IDictionary.Add
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.Clear">
-            <summary>
-            Clears cells
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.Contains(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
-            <summary>
-            IDictionary.Contains
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.CopyTo(System.Collections.Generic.KeyValuePair{System.String,System.Object}[],System.Int32)">
-            <summary>
-            IDictionary.CopyTo
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.Remove(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
-            <summary>
-            IDictionary.Remove
-            </summary>
-        </member>
-        <member name="P:Storage.Net.KeyValue.Value.Count">
-            <summary>
-            IDictionary.Count
-            </summary>
-        </member>
-        <member name="P:Storage.Net.KeyValue.Value.IsReadOnly">
-            <summary>
-            IDictionary.IsReadOnly
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.Add(System.String,System.Object)">
-            <summary>
-            IDictionary.Add
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.ContainsKey(System.String)">
-            <summary>
-            IDictionary.ContainsKey
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.Remove(System.String)">
-            <summary>
-            IDictionary.Remove
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.TryGetValue(System.String,System.Object@)">
-            <summary>
-            IDictionary.TryGetValue
-            </summary>
-        </member>
-        <member name="P:Storage.Net.KeyValue.Value.Item(System.String)">
-            <summary>
-            IDictionary.this
-            </summary>
-        </member>
-        <member name="P:Storage.Net.KeyValue.Value.Keys">
-            <summary>
-            IDictionary.Keys
-            </summary>
-        </member>
-        <member name="P:Storage.Net.KeyValue.Value.Values">
-            <summary>
-            IDictionary.Values
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.Clone(System.String,System.String)">
-            <summary>
-            Clones the row
-            </summary>
-            <param name="rowKey">When specified, the clone receives this value for the Row Key</param>
-            <param name="partitionKey">When speified, the clone receives this value for the Partition Key</param>
-            <returns></returns>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.ToString">
-            <summary>
-            Returns string representation
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.AreDistinct(System.Collections.Generic.IEnumerable{Storage.Net.KeyValue.Value})">
-            <summary>
-            Checks if all rows have uniqueue keys
-            </summary>
-        </member>
-        <member name="M:Storage.Net.KeyValue.Value.Merge(System.Collections.Generic.IEnumerable{Storage.Net.KeyValue.Value})">
-            <summary>
-            Merge
-            </summary>
-        </member>
-        <member name="T:Storage.Net.Queue.Files.DiskMessagePublisherReceiver">
+        <member name="T:Storage.Net.Messaging.Files.LocalDiskMessenger">
             <summary>
             Messages themselves can be human readable. THe speed is not an issue because the main bottleneck is disk anyway.
             </summary>
         </member>
-        <member name="T:Storage.Net.Messaging.IMessagePublisher">
+        <member name="T:Storage.Net.Messaging.IMessageProcessor">
             <summary>
-            Responsible for publishing messages
+            Message processing interface used to register a callback that receives a message
             </summary>
         </member>
-        <member name="M:Storage.Net.Messaging.IMessagePublisher.PutMessagesAsync(System.Collections.Generic.IEnumerable{Storage.Net.Messaging.QueueMessage},System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Messaging.IMessageProcessor.ProcessMessagesAsync(System.Collections.Generic.IReadOnlyCollection{Storage.Net.Messaging.QueueMessage})">
             <summary>
-            Puts a new batch of messages to the back of the queue as quick and efficient as possible for
-            a given queue implementation.
+            
             </summary>
+            <param name="messages"></param>
+            <returns></returns>
         </member>
         <member name="T:Storage.Net.Messaging.IMessageReceiver">
             <summary>
@@ -1065,11 +1331,29 @@
             Moves the message to a dead letter queue
             </summary>
         </member>
-        <member name="M:Storage.Net.Messaging.IMessageReceiver.StartMessagePumpAsync(System.Func{System.Collections.Generic.IReadOnlyCollection{Storage.Net.Messaging.QueueMessage},System.Threading.Tasks.Task},System.Int32,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Messaging.IMessageReceiver.PeekMessagesAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Peeks messages from the queue, without changing their visibility or removing from the queue.
+            </summary>
+            <param name="maxMessages">Maximum number of messages to peek.</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException">Thrown when peeking is not supported by the current provider</exception>
+        </member>
+        <member name="M:Storage.Net.Messaging.IMessageReceiver.StartMessagePumpAsync(System.Func{System.Collections.Generic.IReadOnlyCollection{Storage.Net.Messaging.QueueMessage},System.Threading.CancellationToken,System.Threading.Tasks.Task},System.Int32,System.Threading.CancellationToken)">
             <summary>
             Starts automatic message pumping trying to use native features as much as possible. Message pump stops when you dispose the instance.
             Disposing the instance will also stop message pump for you.
             </summary>
+        </member>
+        <member name="M:Storage.Net.Messaging.IMessageReceiver.KeepAliveAsync(Storage.Net.Messaging.QueueMessage,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Notifies the backend that processing is still happening and message should be marked alive.
+            </summary>
+            <param name="message"></param>
+            <param name="timeToLive">Optional time-to-live</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
         </member>
         <member name="M:Storage.Net.Messaging.IMessageReceiver.OpenTransactionAsync">
             <summary>
@@ -1077,20 +1361,123 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Storage.Net.Messaging.MessagePublisherExtensions">
+        <member name="T:Storage.Net.Messaging.IMessenger">
             <summary>
-            Extensions for IMessagePublisher
+            Messenger interface
             </summary>
         </member>
-        <member name="M:Storage.Net.Messaging.MessagePublisherExtensions.PutMessageAsync(Storage.Net.Messaging.IMessagePublisher,Storage.Net.Messaging.QueueMessage)">
+        <member name="M:Storage.Net.Messaging.IMessenger.CreateChannelsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Create one or more channels
+            </summary>
+            <param name="channelNames"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Messaging.IMessenger.ListChannelsAsync(System.Threading.CancellationToken)">
+            <summary>
+            List available channels
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Messaging.IMessenger.DeleteChannelsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Physically deletes channels
+            </summary>
+            <param name="channelNames"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Messaging.IMessenger.GetMessageCountAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets message count in a channel.
+            </summary>
+            <param name="channelName"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Messaging.IMessenger.SendAsync(System.String,System.Collections.Generic.IEnumerable{Storage.Net.Messaging.QueueMessage},System.Threading.CancellationToken)">
+            <summary>
+            Send messages to a channel
+            </summary>
+            <param name="channelName"></param>
+            <param name="messages"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Messaging.IMessenger.ReceiveAsync(System.String,System.Int32,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Receive messages from a channel
+            </summary>
+            <param name="channelName"></param>
+            <param name="count"></param>
+            <param name="visibility"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Messaging.IMessenger.PeekAsync(System.String,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Peek messages in a channel
+            </summary>
+            <param name="channelName"></param>
+            <param name="count"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Messaging.IMessenger.DeleteAsync(System.String,System.Collections.Generic.IEnumerable{Storage.Net.Messaging.QueueMessage},System.Threading.CancellationToken)">
+            <summary>
+            Deletes messages from the channel
+            </summary>
+            <param name="channelName"></param>
+            <param name="messages"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Messaging.IMessenger.StartMessageProcessorAsync(System.String,Storage.Net.Messaging.IMessageProcessor)">
+            <summary>
+            Starts message processor which listens for new messages asynchronously and passes to the processing host.
+            </summary>
+            <param name="channelName">Name of the channel</param>
+            <param name="messageProcessor">Message processor implementation</param>
+            <returns></returns>
+        </member>
+        <member name="T:Storage.Net.Messaging.MessengerExtensions">
+            <summary>
+            Extensions for <see cref="T:Storage.Net.Messaging.IMessenger"/>
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Messaging.MessengerExtensions.CreateChannelAsync(Storage.Net.Messaging.IMessenger,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Create a channel
+            </summary>
+            <param name="messenger"></param>
+            <param name="channelName"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Storage.Net.Messaging.MessengerExtensions.SendAsync(Storage.Net.Messaging.IMessenger,System.String,Storage.Net.Messaging.QueueMessage,System.Threading.CancellationToken)">
             <summary>
             Puts a new message to the back of the queue.
             </summary>
+        </member>
+        <member name="M:Storage.Net.Messaging.MessengerExtensions.DeleteChannelAsync(Storage.Net.Messaging.IMessenger,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a single channel
+            </summary>
+            <param name="messenger"></param>
+            <param name="channelName"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
         </member>
         <member name="T:Storage.Net.Messaging.PollingMessageReceiver">
             <summary>
             Base class for implementing a polling message receiver for those providers that do not support polling natively.
             </summary>
+        </member>
+        <member name="M:Storage.Net.Messaging.PollingMessageReceiver.#ctor">
+             <summary>
+            
+             </summary>
         </member>
         <member name="M:Storage.Net.Messaging.PollingMessageReceiver.GetMessageCountAsync">
             <summary>
@@ -1117,7 +1504,7 @@
             See interface
             </summary>
         </member>
-        <member name="M:Storage.Net.Messaging.PollingMessageReceiver.StartMessagePumpAsync(System.Func{System.Collections.Generic.IReadOnlyCollection{Storage.Net.Messaging.QueueMessage},System.Threading.Tasks.Task},System.Int32,System.Threading.CancellationToken)">
+        <member name="M:Storage.Net.Messaging.PollingMessageReceiver.StartMessagePumpAsync(System.Func{System.Collections.Generic.IReadOnlyCollection{Storage.Net.Messaging.QueueMessage},System.Threading.CancellationToken,System.Threading.Tasks.Task},System.Int32,System.Threading.CancellationToken)">
             <summary>
             See interface
             </summary>
@@ -1127,9 +1514,27 @@
             See interface
             </summary>
         </member>
+        <member name="M:Storage.Net.Messaging.PollingMessageReceiver.KeepAliveAsync(Storage.Net.Messaging.QueueMessage,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            See interface
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Messaging.PollingMessageReceiver.PeekMessagesAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            see interface
+            </summary>
+            <param name="maxMessages"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
         <member name="T:Storage.Net.Messaging.QueueMessage">
             <summary>
             Message to be used in all the queueing code
+            </summary>
+        </member>
+        <member name="F:Storage.Net.Messaging.QueueMessage.LargeMessageContentHeaderName">
+            <summary>
+            Message header that points to large message content, if you are using content offloading feature
             </summary>
         </member>
         <member name="M:Storage.Net.Messaging.QueueMessage.#ctor(System.String,System.String)">
@@ -1175,6 +1580,11 @@
             Gets the count of how many time this message was dequeued
             </summary>
         </member>
+        <member name="P:Storage.Net.Messaging.QueueMessage.NextVisibleTime">
+            <summary>
+            When present, indicates time when this message becomes visible again
+            </summary>
+        </member>
         <member name="P:Storage.Net.Messaging.QueueMessage.StringContent">
             <summary>
             Message content as string
@@ -1209,6 +1619,331 @@
             </summary>
             <param name="data">Binary data</param>
             <returns></returns>
+        </member>
+        <member name="T:Storage.Net.Model.MimeType">
+            <summary>
+            Common mime types. 
+            </summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXJavascript">
+            <summary>Used to denote the encoding necessary for files containing JavaScript source code. The alternative MIME type for this file type is text/javascript.</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.AudioL24">
+            <summary>24bit Linear PCM audio at 8-48kHz, 1-N channels; Defined in RFC 3190</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXShockwaveFlash">
+            <summary>Adobe Flash files for example with the extension .swf</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationOctetStream">
+            <summary>Arbitrary binary data.[5] Generally speaking this type identifies files that are not associated with a specific application. Contrary to past assumptions by software packages such as Apache this is not a type that should be applied to unknown files. In such a case, a server or application should not indicate a content type, as it may be incorrect, but rather, should omit the type in order to allow the recipient to guess the type.[6]</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationAtomXml">
+            <summary>Atom feeds</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.TextCss">
+            <summary>Cascading Style Sheets; Defined in RFC 2318</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.TextCmd">
+            <summary>commands; subtype resident in Gecko browsers like Firefox 3.5</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.TextCsv">
+            <summary>Comma-separated values; Defined in RFC 4180</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXDeb">
+            <summary>deb (file format), a software package format used by the Debian project</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.MultipartEncrypted">
+            <summary>Defined in RFC 1847</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.MultipartSigned">
+            <summary>Defined in RFC 1847</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.MessageHttp">
+            <summary>Defined in RFC 2616</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ModelExample">
+            <summary>Defined in RFC 4735</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXDvi">
+            <summary>device-independent document in DVI format</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXmlDtd">
+            <summary>DTD files; Defined by RFC 3023</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationJavascript">
+            <summary>
+            ECMAScript/JavaScript; Defined in RFC 4329 (equivalent to application/ecmascript but with looser processing rules) It is not accepted in IE 8 or earlier - text/javascript is accepted but it is defined as obsolete in RFC 4329. The "type" attribute of the script tag in HTML5 is optional and in practice omitting the media type of JavaScript programs is the most interoperable solution since all browsers have always assumed the correct default even before HTML5.
+            </summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationEcmascript">
+            <summary>ECMAScript/JavaScript; Defined in RFC 4329 (equivalent to application/javascript but with stricter processing rules)</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationEdifact">
+            <summary>EDI EDIFACT data; Defined in RFC 1767</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationEdiX12">
+            <summary>EDI X12 data; Defined in RFC 1767</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.MessagePartial">
+            <summary>Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.MessageRfc822">
+            <summary>Email; EML files, MIME files, MHT files, MHTML files; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.TextXml">
+            <summary>Extensible Markup Language; Defined in RFC 3023</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.VideoXFlv">
+            <summary>Flash video (FLV files)</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ImageGif">
+            <summary>GIF image; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.TextXGwtRpc">
+            <summary>GoogleWebToolkit data</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXGzip">
+            <summary>Gzip</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.TextHtml">
+            <summary>HTML; Defined in RFC 2854</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ImageVndMicrosoftIcon">
+            <summary>ICO image; Registered[9]</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ModelIges">
+            <summary>IGS files, IGES files; Defined in RFC 2077</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.MessageImdnXml">
+            <summary>IMDN Instant Message Disposition Notification; Defined in RFC 5438</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationJson">
+            <summary>JavaScript Object Notation JSON; Defined in RFC 4627</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationJsonPatch">
+            <summary>JavaScript Object Notation (JSON) Patch; Defined in RFC 6902</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ImagePjpeg">
+            <summary>JPEG JFIF image; Associated with Internet Explorer; Listed in ms775147(v=vs.85) - Progressive JPEG, initiated before global browser support for progressive JPEGs (Microsoft and Firefox).</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ImageJpeg">
+            <summary>JPEG JFIF image; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.TextXJqueryTmpl">
+            <summary>jQuery template data</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationVndGoogleEarthKmlXml">
+            <summary>KML files (e.g. for Google Earth)</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXLatex">
+            <summary>LaTeX files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.VideoXMatroska">
+            <summary>Matroska open media format</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet">
+            <summary>Microsoft Excel 2007 files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationVndMsExcel">
+            <summary>Microsoft Excel files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation">
+            <summary>Microsoft Powerpoint 2007 files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationVndMsPowerpoint">
+            <summary>Microsoft Powerpoint files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument">
+            <summary>Microsoft Word 2007 files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationMsword">
+            <summary>Microsoft Word files[15]</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.MultipartAlternative">
+            <summary>MIME Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.MultipartMixed">
+            <summary>MIME Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.MultipartRelated">
+            <summary>MIME Email; Defined in RFC 2387 and used by MHTML (HTML mail)</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.MultipartFormData">
+            <summary>MIME Webform; Defined in RFC 2388</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationVndMozillaXulXml">
+            <summary>Mozilla XUL files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.AudioMpeg">
+            <summary>MP3 or other MPEG audio; Defined in RFC 3003</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.AudioMp4">
+            <summary>MP4 audio</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.VideoMp4">
+            <summary>MP4 video; Defined in RFC 4337</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.VideoMpeg">
+            <summary>MPEG-1 video with multiplexed audio; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ModelMesh">
+            <summary>MSH files, MESH files; Defined in RFC 2077, SILO files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.AudioBasic">
+            <summary>mulaw audio at 8 kHz, 1 channel; Defined in RFC 2046</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.VideoOgg">
+            <summary>Ogg Theora or other video (with audio); Defined in RFC 5334</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.AudioOgg">
+            <summary>Ogg Vorbis, Speex, Flac and other audio; Defined in RFC 5334</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationOgg">
+            <summary>Ogg, a multimedia bitstream container format; Defined in RFC 5334</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXopXml">
+            <summary>OP</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationVndOasisOpendocumentGraphics">
+            <summary>OpenDocument Graphics; Registered[14]</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationVndOasisOpendocumentPresentation">
+            <summary>OpenDocument Presentation; Registered[13]</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationVndOasisOpendocumentSpreadsheet">
+            <summary>OpenDocument Spreadsheet; Registered[12]</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationVndOasisOpendocumentText">
+            <summary>OpenDocument Text; Registered[11]</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXPkcs12">
+            <summary>p12 files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXPkcs7Certificates">
+            <summary>p7b and spc files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXPkcs7Mime">
+            <summary>p7c files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXPkcs7Certreqresp">
+            <summary>p7r files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXPkcs7Signature">
+            <summary>p7s files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationPdf">
+            <summary>Portable Document Format, PDF has been in use for document exchange on the Internet since 1993; Defined in RFC 3778</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ImagePng">
+            <summary>Portable Network Graphics; Registered,[8] Defined in RFC 2083</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationPostscript">
+            <summary>PostScript; Defined in RFC 2046</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.VideoQuicktime">
+            <summary>QuickTime video; Registered[10]</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXRarCompressed">
+            <summary>RAR archive files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.AudioVndRnRealaudio">
+            <summary>RealAudio; Documented in RealPlayer Customer Support Answer 2559</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationRdfXml">
+            <summary>Resource Description Framework; Defined by RFC 3870</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationRssXml">
+            <summary>RSS feeds</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationSoapXml">
+            <summary>SOAP; Defined by RFC 3902</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXStuffit">
+            <summary>StuffIt archive files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ImageSvgXml">
+            <summary>SVG vector image; Defined in SVG Tiny 1.2 Specification Appendix M</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ImageTiff">
+            <summary>Tag Image File Format (only for Baseline TIFF); Defined in RFC 3302</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXTar">
+            <summary>Tarball files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.TextPlain">
+            <summary>Textual data; Defined in RFC 2046 and RFC 3676</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXFontTtf">
+            <summary>TrueType Font No registered MIME type, but this is the most commonly used</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.TextVcard">
+            <summary>vCard (contact information); Defined in RFC 6350</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.AudioVorbis">
+            <summary>Vorbis encoded audio; Defined in RFC 5215</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.AudioVndWave">
+            <summary>WAV audio; Defined in RFC 2361</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationFontWoff">
+            <summary>Web Open Font Format; (candidate recommendation; use application/x-font-woff until standard is official)</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.VideoWebm">
+            <summary>WebM Matroska-based open media format</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.AudioWebm">
+            <summary>WebM open media format</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.AudioXMsWax">
+            <summary>Windows Media Audio Redirector; Documented in Microsoft help page</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.AudioXMsWma">
+            <summary>Windows Media Audio; Documented in Microsoft KB 288102</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.VideoXMsWmv">
+            <summary>Windows Media Video; Documented in Microsoft KB 288102</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ModelVrml">
+            <summary>WRL files, VRML files; Defined in RFC 2077</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ModelX3DXml">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3D XML files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ModelX3DBinary">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3DB binary files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ModelX3DVrml">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3DV VRML files</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationXhtmlXml">
+            <summary>XHTML; Defined by RFC 3236</summary>
+        </member>
+        <member name="F:Storage.Net.Model.MimeType.ApplicationZip">
+            <summary>ZIP archive files; Registered[7]</summary>
+        </member>
+        <member name="T:Storage.Net.StorageEventSource">
+            <summary>
+            Internal logger
+            </summary>
+        </member>
+        <member name="P:Storage.Net.StorageEventSource.Log">
+            <summary>
+            Logger instance
+            </summary>
+        </member>
+        <member name="M:Storage.Net.StorageEventSource.Debug(System.String,System.String)">
+            <summary>
+            Writes generic debug message
+            </summary>
+            <param name="subsystem"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Storage.Net.StorageEventSource.Error(System.String,System.String)">
+            <summary>
+            Writes generic error message
+            </summary>
+            <param name="subsystem"></param>
+            <param name="message"></param>
         </member>
         <member name="T:Storage.Net.StorageException">
             <summary>
@@ -1265,6 +2000,11 @@
             Module initialisation
             </summary>
         </member>
+        <member name="P:Storage.Net.StorageFactory.ConnectionStrings">
+            <summary>
+            Connection strings
+            </summary>
+        </member>
         <member name="T:Storage.Net.IBlobStorageFactory">
             <summary>
             Crates blob storage implementations
@@ -1278,6 +2018,11 @@
         <member name="T:Storage.Net.IKeyValueStorageFactory">
             <summary>
             Crates table storage implementations
+            </summary>
+        </member>
+        <member name="T:Storage.Net.IConnectionStringFactory">
+            <summary>
+            Creates connection strings, acts as a helper
             </summary>
         </member>
         <member name="T:Storage.Net.IModulesFactory">
@@ -1300,14 +2045,14 @@
             Character used to split paths as a string value
             </summary>
         </member>
-        <member name="F:Storage.Net.StoragePath.PathStrSeparator">
-            <summary>
-            Character used to split paths 
-            </summary>
-        </member>
         <member name="F:Storage.Net.StoragePath.RootFolderPath">
             <summary>
             Returns '/'
+            </summary>
+        </member>
+        <member name="F:Storage.Net.StoragePath.LevelUpFolderName">
+            <summary>
+            Folder name for leveling up the path
             </summary>
         </member>
         <member name="M:Storage.Net.StoragePath.Combine(System.Collections.Generic.IEnumerable{System.String})">
@@ -1316,6 +2061,11 @@
             </summary>
             <param name="parts"></param>
             <returns></returns>
+        </member>
+        <member name="M:Storage.Net.StoragePath.GetParent(System.String)">
+            <summary>
+            Gets parent path of this item.
+            </summary>
         </member>
         <member name="M:Storage.Net.StoragePath.Combine(System.String[])">
             <summary>
@@ -1327,11 +2077,11 @@
         <member name="M:Storage.Net.StoragePath.Normalize(System.String,System.Boolean)">
             <summary>
             Normalizes path. Normalisation makes sure that:
-            - When path is null returns root path '/'
+            - When path is null or empty returns root path '/'
             - path separators are trimmed from both ends
             </summary>
             <param name="path"></param>
-            <param name="includeTrailingRoot">When true, includes trailing '/' as path prefix</param>
+            <param name="removeTrailingSlash"></param>
         </member>
         <member name="M:Storage.Net.StoragePath.NormalizePart(System.String)">
             <summary>
@@ -1343,17 +2093,46 @@
         <member name="M:Storage.Net.StoragePath.Split(System.String)">
             <summary>
             Splits path in parts. Leading and trailing path separators are totally ignored. Note that it returns
-            null if input path is null.
+            null if input path is null. Parent folder signatures are returned as a part of split, they are not removed.
+            If you want to get an absolute normalized path use <see cref="M:Storage.Net.StoragePath.Normalize(System.String,System.Boolean)"/>
             </summary>
         </member>
         <member name="M:Storage.Net.StoragePath.IsRootPath(System.String)">
             <summary>
-            Checks if path is root folder path
+            Checks if path is root folder path, which can be an empty string, null, or the actual root path.
             </summary>
+        </member>
+        <member name="M:Storage.Net.StoragePath.GetRootFolder(System.String)">
+            <summary>
+            Gets the root folder name
+            </summary>
+        </member>
+        <member name="M:Storage.Net.StoragePath.RemoveRootFolder(System.String)">
+            <summary>
+            Removes root folder from path
+            </summary>
+        </member>
+        <member name="M:Storage.Net.StoragePath.ComparePath(System.String,System.String)">
+            <summary>
+            Compare that two path entries are equal. This takes into account path entries which are slightly different as strings but identical in physical location.
+            </summary>
+        </member>
+        <member name="M:Storage.Net.StoragePath.Rename(System.String,System.String)">
+            <summary>
+            Replace file name
+            </summary>
+            <param name="path"></param>
+            <param name="newFileName"></param>
+            <returns></returns>
         </member>
         <member name="T:Storage.Net.Streaming.FixedStream">
             <summary>
             Fixes deficiencies in thrird party streaming impelmentations
+            </summary>
+        </member>
+        <member name="M:Storage.Net.Streaming.FixedStream.#ctor(System.IO.Stream,System.Nullable{System.Int64},System.Func{Storage.Net.Streaming.FixedStream,System.Threading.Tasks.Task})">
+            <summary>
+            Creates a new instance
             </summary>
         </member>
         <member name="M:Storage.Net.Streaming.FixedStream.#ctor(System.IO.Stream,System.Nullable{System.Int64},System.Action{Storage.Net.Streaming.FixedStream})">

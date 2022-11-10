@@ -79,6 +79,29 @@
             This class is ported from .NET 4.6 to support URL encoding/decoding functionality which is missing in .NET Standard
             </summary>
         </member>
+        <member name="T:NetBox.Async.AsyncLimiter">
+            <summary>
+            Limit the amount of async tasks that can run at once
+            </summary>
+        </member>
+        <member name="M:NetBox.Async.AsyncLimiter.#ctor(System.Int32)">
+            <summary>
+            Creates a guard block that limits number of tasks to run at once.
+            </summary>
+            <param name="maxTasks"></param>
+        </member>
+        <member name="M:NetBox.Async.AsyncLimiter.AcquireOneAsync">
+            <summary>
+            Call this method to get a lock on the limiter. The call waits asynchronously until a slot is available.
+            You are responsible for disposing the result in order to release the lock.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NetBox.Async.AsyncLimiter.Dispose">
+            <summary>
+            Disposes internal resources
+            </summary>
+        </member>
         <member name="T:NetBox.Caching.LazyVar`1">
             <summary>
             Implements a lazy value i.e. that can expire in future
@@ -547,7 +570,7 @@
             Converts byte array to hexadecimal string
             </summary>
         </member>
-        <member name="M:NetBox.Extensions.ByteArrayExtensions.GetHash(System.Byte[],NetBox.HashType)">
+        <member name="M:NetBox.Extensions.ByteArrayExtensions.GetHash(System.Byte[],NetBox.HashType,System.Byte[])">
             <summary>
             Calculates a hash on byte array
             </summary>
@@ -636,6 +659,15 @@
             <param name="source">Source dictionary to get the values from</param>
             <param name="target">Target dictionary to add values to</param>
         </member>
+        <member name="M:NetBox.Extensions.DictionaryExtensions.MergeRange``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+            Merges all the keys into target dictionary, overwriting existing values
+            </summary>
+            <typeparam name="TKey">Key type</typeparam>
+            <typeparam name="TValue">Value type</typeparam>
+            <param name="source">Source dictionary to get the values from</param>
+            <param name="target">Target dictionary to merge values to</param>
+        </member>
         <member name="M:NetBox.Extensions.DictionaryExtensions.GetOrAdd``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Func{``1})">
             <summary>
             Gets element by key if it exists in the dictionary, otherwise calls specifed method to
@@ -718,7 +750,7 @@
             Enum extensions methods
             </summary>
         </member>
-        <member name="M:NetBox.Extensions.EnumExtensions.GetEnumTag(System.Enum)">
+        <member name="M:NetBox.Extensions.EnumExtensions.GetEnumTag(System.Object)">
             <summary>
             Gets attribute value for enums marked with <see cref="T:NetBox.Model.EnumTagAttribute"/>
             </summary>
@@ -1052,12 +1084,13 @@
             on how to convert Guid to string.
             </summary>
         </member>
-        <member name="M:NetBox.Extensions.StringExtensions.GetHash(System.String,NetBox.HashType)">
+        <member name="M:NetBox.Extensions.StringExtensions.GetHash(System.String,NetBox.HashType,System.String)">
             <summary>
             Gets string hash
             </summary>
             <param name="s">Source string</param>
             <param name="hashType">Hash type</param>
+            <param name="salt">Optional salt, only available for certain algorithms like HMAC-SHA256</param>
             <returns></returns>
         </member>
         <member name="M:NetBox.Extensions.StringExtensions.ToMemoryStream(System.String,System.Text.Encoding)">
@@ -1154,6 +1187,11 @@
             <returns>A tuple of two values where the first one is the key and second is the value. If none of the delimiters
             are found the second value of the tuple is null and the first value is the input string</returns>
         </member>
+        <member name="M:NetBox.Extensions.StringExtensions.RemoveLinesContaining(System.String,System.String,System.StringComparison)">
+            <summary>
+            Splits text line by line and removes lines containing specific substring
+            </summary>
+        </member>
         <member name="M:NetBox.Extensions.StringExtensions.ToNetworkCredential(System.String)">
             <summary>
             Converts string to network credentials if it's formatted in a friendly way.
@@ -1162,15 +1200,12 @@
             <param name="s">String to conver from.</param>
             <returns>An instance of <see cref="T:System.Net.NetworkCredential"/></returns>
         </member>
-        <member name="M:NetBox.Extensions.StringExtensions.PairedWith``1(System.String,``0)">
+        <member name="M:NetBox.Extensions.StringExtensions.ToEscapedJsonValueString(System.String)">
             <summary>
-            Creates a key-value pair from this string and an object value
+            Escapes a string for JSON encoding
             </summary>
-        </member>
-        <member name="M:NetBox.Extensions.StringExtensions.WithObj(System.String,System.Object)">
-            <summary>
-            Creates a <see cref="T:System.Collections.Generic.KeyValuePair`2"/> with <see cref="T:System.Object"/> value type
-            </summary>
+            <param name="s"></param>
+            <returns></returns>
         </member>
         <member name="T:NetBox.Extensions.TaskExtensions">
             <summary>
@@ -1639,18 +1674,6 @@
             </summary>
             <param name="disposing"></param>
         </member>
-        <member name="T:NetBox.Json">
-            <summary>
-            Common JavaScript helpers
-            </summary>
-        </member>
-        <member name="M:NetBox.Json.ToEscapedString(System.String)">
-            <summary>
-            Escapes a string for JSON encoding
-            </summary>
-            <param name="s"></param>
-            <returns></returns>
-        </member>
         <member name="T:NetBox.Model.EnumTagAttribute">
             <summary>
             Tags enums for assigning extra data such as alternative ID, Description etc.
@@ -1732,36 +1755,195 @@
             500Mb hashes in 3820 ms, size: 64b
             </summary>
         </member>
-        <member name="F:NetBox.HashType.RipeMd160">
+        <member name="F:NetBox.HashType.HMACSHA256">
             <summary>
-            500Mb hashes in 7066 ms, size: 20b
+            HMAC-SHA256 hash
             </summary>
         </member>
-        <member name="T:NetBox.Performance.Measure">
+        <member name="T:NetBox.Performance.TimeMeasure">
             <summary>
             Measures a time slice as precisely as possible
             </summary>
         </member>
-        <member name="M:NetBox.Performance.Measure.#ctor">
+        <member name="M:NetBox.Performance.TimeMeasure.#ctor">
             <summary>
             Creates the measure object
             </summary>
         </member>
-        <member name="P:NetBox.Performance.Measure.ElapsedTicks">
+        <member name="P:NetBox.Performance.TimeMeasure.ElapsedTicks">
             <summary>
             Returns number of elapsed ticks since the start of measure.
             The measuring process will continue running.
             </summary>
         </member>
-        <member name="P:NetBox.Performance.Measure.ElapsedMilliseconds">
+        <member name="P:NetBox.Performance.TimeMeasure.ElapsedMilliseconds">
             <summary>
             Returns number of elapsed milliseconds since the start of measure.
             The measuring process will continue running.
             </summary>
         </member>
-        <member name="M:NetBox.Performance.Measure.Dispose">
+        <member name="P:NetBox.Performance.TimeMeasure.Elapsed">
+            <summary>
+            Gets time elapsed from the time this measure was created
+            </summary>
+        </member>
+        <member name="M:NetBox.Performance.TimeMeasure.Dispose">
             <summary>
             Stops measure object if still running
+            </summary>
+        </member>
+        <member name="T:NetBox.Terminal.App.Application">
+            <summary>
+            Console application description
+            </summary>
+        </member>
+        <member name="T:NetBox.Terminal.App.Command">
+            <summary>
+            Describes application command
+            </summary>
+        </member>
+        <member name="M:NetBox.Terminal.App.Command.Argument``1(System.String,System.String,``0)">
+            <summary>
+            Adds a positional argument
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <param name="description"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NetBox.Terminal.App.Command.Option``1(System.String,System.String,``0)">
+            <summary>
+            Adds an option
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="spec"></param>
+            <param name="description"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NetBox.Terminal.App.ILinePrimitiveValidator">
+            <summary>
+            Common interface for validating a line primitive
+            </summary>
+        </member>
+        <member name="P:NetBox.Terminal.App.LinePrimitive.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:NetBox.Terminal.App.LinePrimitive.Description">
+            <summary>
+            Description (help)
+            </summary>
+        </member>
+        <member name="M:NetBox.Terminal.App.LinePrimitive.AddValidator(NetBox.Terminal.App.ILinePrimitiveValidator)">
+            <summary>
+            Adds a validator that is executed before the command
+            </summary>
+            <param name="validator"></param>
+        </member>
+        <member name="M:NetBox.Terminal.App.LinePrimitive`1.AddValidator(NetBox.Terminal.App.ILinePrimitiveValidator)">
+            <summary>
+            Adds a validator that is executed before the command
+            </summary>
+            <param name="validator"></param>
+        </member>
+        <member name="T:NetBox.Terminal.PoshConsole">
+            <summary>
+            Posh functionality for a console
+            </summary>
+        </member>
+        <member name="P:NetBox.Terminal.PoshConsole.T">
+            <summary>
+            Color theme
+            </summary>
+        </member>
+        <member name="M:NetBox.Terminal.PoshConsole.Write(System.Object,System.Nullable{System.ConsoleColor})">
+            <summary>
+            Writes a string in specific color
+            </summary>
+            <param name="s"></param>
+            <param name="color"></param>
+        </member>
+        <member name="M:NetBox.Terminal.PoshConsole.WriteLine(System.Object,System.Nullable{System.ConsoleColor})">
+            <summary>
+            Writes a string in specific color
+            </summary>
+            <param name="s"></param>
+            <param name="color"></param>
+        </member>
+        <member name="M:NetBox.Terminal.PoshConsole.WriteLine">
+            <summary>
+            Adds an empty line
+            </summary>
+        </member>
+        <member name="M:NetBox.Terminal.PoshConsole.AskInput(System.String,System.String)">
+            <summary>
+            Ask user input
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NetBox.Terminal.PoshConsole.AskPasswordInput(System.String,System.String)">
+            <summary>
+            Ask user input without displaying characters. Asterisks are still displayed.
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NetBox.Terminal.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:NetBox.Terminal.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:NetBox.Terminal.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:NetBox.Terminal.Strings.Error_CommandHasNoExecute">
+            <summary>
+              Looks up a localized string similar to Command didn&apos;t declare any execution methods..
+            </summary>
+        </member>
+        <member name="P:NetBox.Terminal.Strings.Error_NoCommand">
+            <summary>
+              Looks up a localized string similar to No command specified, launch with -h argument to see the list of available commands..
+            </summary>
+        </member>
+        <member name="P:NetBox.Terminal.Strings.Error_NoCommands">
+            <summary>
+              Looks up a localized string similar to This application has not declared any commands.
+            </summary>
+        </member>
+        <member name="P:NetBox.Terminal.Strings.Error_UnknownCommand">
+            <summary>
+              Looks up a localized string similar to Unknown command &apos;{0}&apos;, launch with -h argument to see the list of available commands..
+            </summary>
+        </member>
+        <member name="T:NetBox.Terminal.Widgets.ProgressBar">
+            <summary>
+            Draws a progress bar in the console
+            </summary>
+        </member>
+        <member name="M:NetBox.Terminal.Widgets.ProgressBar.#ctor(System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Creates a new instance of the progress bar
+            </summary>
+            <param name="hasSubtitle"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+        </member>
+        <member name="M:NetBox.Terminal.Widgets.ProgressBar.Dispose">
+            <summary>
+            Gracefully shuts down the progress counter
             </summary>
         </member>
         <member name="T:SimpleJson.JsonArray">
