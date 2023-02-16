@@ -1,0 +1,9 @@
+e:
+cd E:\Utility\LGPO_30
+lgpo.exe /b E:\Utility\LGPO_30\gpo-backup
+lgpo.exe /b E:\Utility\github\WindowsResearchApp\gpo-backup
+
+lgpo /g E:\Utility\LGPO_30\gpo-backup
+
+cd "C:\Users\aluca\Desktop\group policy\LGPO_30"
+.\gp.cmd
