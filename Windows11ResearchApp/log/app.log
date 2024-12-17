@@ -1,0 +1,53 @@
+2024-12-17 00:52:40,272 ; autologger:SYSTEM\CurrentControlSet\Control\WMI\Autologger\Circular Kernel Context Logger
+2024-12-17 00:52:40,280 ; autologger:SYSTEM\CurrentControlSet\Control\WMI\Autologger\CloudExperienceHostOobe
+2024-12-17 00:52:40,280 ; autologger:SYSTEM\CurrentControlSet\Control\WMI\Autologger\DiagLog
+2024-12-17 00:52:40,280 ; autologger:SYSTEM\CurrentControlSet\Control\WMI\Autologger\LwtNetLog
+2024-12-17 00:52:40,280 ; autologger:SYSTEM\CurrentControlSet\Control\WMI\Autologger\Microsoft-Windows-Rdp-Graphics-RdpIdd-Trace
+2024-12-17 00:52:40,280 ; autologger:SYSTEM\CurrentControlSet\Control\WMI\Autologger\NtfsLog
+2024-12-17 00:52:40,281 ; autologger:SYSTEM\CurrentControlSet\Control\WMI\Autologger\ReFSLog
+2024-12-17 00:52:40,281 ; autologger:SYSTEM\CurrentControlSet\Control\WMI\Autologger\Tpm
+2024-12-17 00:52:40,281 ; autologger:SYSTEM\CurrentControlSet\Control\WMI\Autologger\WdiContextLog
+2024-12-17 00:52:40,281 ; autologger:SYSTEM\CurrentControlSet\Control\WMI\Autologger\WiFiDriverIHVSession
+2024-12-17 00:52:40,281 ; autologger:SYSTEM\CurrentControlSet\Control\WMI\Autologger\WiFiSession
+2024-12-17 00:52:40,334 ; TotalPhysicalMemory==32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,336 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,337 ; hardcoreDriver etc2:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32
+2024-12-17 00:52:40,372 ; rtnArr line1:hypervisorusekey        2u7jf9keaeyma.3r1m3uckj1dk9.3qh0stuvqgh2f.1nf6y0u4d3jz4
+2024-12-17 00:52:40,372 ; rtnArr line1:
+2024-12-17 00:52:40,372 ; rtnArr line1:hypervisordebugtype     NET
+2024-12-17 00:52:40,372 ; rtnArr line1:
+2024-12-17 00:52:40,372 ; rtnArr line1:hypervisorhostip        192.168.100.100
+2024-12-17 00:52:40,372 ; rtnArr line1:
+2024-12-17 00:52:40,372 ; rtnArr line1:hypervisorhostport      50000
+2024-12-17 00:52:40,372 ; rtnArr line1:
+2024-12-17 00:52:40,372 ; rtnArr line1:hypervisordhcp          Yes
+2024-12-17 00:52:40,372 ; rtnArr line1:
+2024-12-17 00:52:40,372 ; rtnArr line1:작업을 완료했습니다.
+2024-12-17 00:52:40,372 ; rtnArr line1:
+2024-12-17 00:52:40,372 ; rtnArr line1:
