@@ -1471,70 +1471,32 @@
             The task is compatible with Task Scheduler 1.0 (Windows Server™ 2003, Windows® XP, or Windows® 2000).
             <para>Items not available when compared to V2:</para>
             <list type="bullet">
+            <item>TaskDefinition.Principal.GroupId - All account information can be retrieved via the UserId property.</item>
+            <item>TaskLogonType values Group, None and S4U are not supported.</item>
+            <item>TaskDefinition.Principal.RunLevel == TaskRunLevel.Highest is not supported.</item>
             <item>
-            <term>TaskDefinition.Principal.GroupId - All account information can be retrieved via the UserId property.</term>
-            </item>
-            <item>
-            <term>TaskLogonType values Group, None and S4U are not supported.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.Principal.RunLevel == TaskRunLevel.Highest is not supported.</term>
-            </item>
-            <item>
-            <term>
             Assigning access security to a task is not supported using TaskDefinition.RegistrationInfo.SecurityDescriptorSddlForm or in RegisterTaskDefinition.
-            </term>
             </item>
             <item>
-            <term>
             TaskDefinition.RegistrationInfo.Documentation, Source, URI and Version properties are only supported using this library. See
             details in the remarks for <see cref="P:Microsoft.Win32.TaskScheduler.TaskDefinition.Data"/>.
-            </term>
             </item>
+            <item>TaskDefinition.Settings.AllowDemandStart cannot be false.</item>
+            <item>TaskDefinition.Settings.AllowHardTerminate cannot be false.</item>
+            <item>TaskDefinition.Settings.MultipleInstances can only be IgnoreNew.</item>
+            <item>TaskDefinition.Settings.NetworkSettings cannot have any values.</item>
+            <item>TaskDefinition.Settings.RestartCount can only be 0.</item>
+            <item>TaskDefinition.Settings.StartWhenAvailable can only be false.</item>
             <item>
-            <term>TaskDefinition.Settings.AllowDemandStart cannot be false.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.Settings.AllowHardTerminate cannot be false.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.Settings.MultipleInstances can only be IgnoreNew.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.Settings.NetworkSettings cannot have any values.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.Settings.RestartCount can only be 0.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.Settings.StartWhenAvailable can only be false.</term>
-            </item>
-            <item>
-            <term>
             TaskDefinition.Actions can only contain ExecAction instances unless the TaskDefinition.Actions.PowerShellConversion property has
             the Version1 flag set.
-            </term>
             </item>
-            <item>
-            <term>
-            TaskDefinition.Triggers cannot contain CustomTrigger, EventTrigger, SessionStateChangeTrigger, or RegistrationTrigger instances.
-            </term>
-            </item>
-            <item>
-            <term>TaskDefinition.Triggers cannot contain instances with delays set.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.Triggers cannot contain instances with ExecutionTimeLimit or Id properties set.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.Triggers cannot contain LogonTriggers instances with the UserId property set.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.Triggers cannot contain MonthlyDOWTrigger instances with the RunOnLastWeekOfMonth property set to <c>true</c>.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.Triggers cannot contain MonthlyTrigger instances with the RunOnDayWeekOfMonth property set to <c>true</c>.</term>
-            </item>
+            <item>TaskDefinition.Triggers cannot contain CustomTrigger, EventTrigger, SessionStateChangeTrigger, or RegistrationTrigger instances.</item>
+            <item>TaskDefinition.Triggers cannot contain instances with delays set.</item>
+            <item>TaskDefinition.Triggers cannot contain instances with ExecutionTimeLimit or Id properties set.</item>
+            <item>TaskDefinition.Triggers cannot contain LogonTriggers instances with the UserId property set.</item>
+            <item>TaskDefinition.Triggers cannot contain MonthlyDOWTrigger instances with the RunOnLastWeekOfMonth property set to <c>true</c>.</item>
+            <item>TaskDefinition.Triggers cannot contain MonthlyTrigger instances with the RunOnDayWeekOfMonth property set to <c>true</c>.</item>
             </list>
             </summary>
         </member>
@@ -1552,24 +1514,14 @@
             The task is compatible with Task Scheduler 2.1 (Windows® 7, Windows Server™ 2008 R2).
             <para>Changes from V2:</para>
             <list type="bullet">
+            <item>TaskDefinition.Principal.ProcessTokenSidType can be defined as a value other than Default.</item>
             <item>
-            <term>TaskDefinition.Principal.ProcessTokenSidType can be defined as a value other than Default.</term>
-            </item>
-            <item>
-            <term>
             TaskDefinition.Actions may not contain EmailAction or ShowMessageAction instances unless the
             TaskDefinition.Actions.PowerShellConversion property has the Version2 flag set.
-            </term>
             </item>
-            <item>
-            <term>TaskDefinition.Principal.RequiredPrivileges can have privilege values assigned.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.Settings.DisallowStartOnRemoteAppSession can be set to true.</term>
-            </item>
-            <item>
-            <term>TaskDefinition.UseUnifiedSchedulingEngine can be set to true.</term>
-            </item>
+            <item>TaskDefinition.Principal.RequiredPrivileges can have privilege values assigned.</item>
+            <item>TaskDefinition.Settings.DisallowStartOnRemoteAppSession can be set to true.</item>
+            <item>TaskDefinition.UseUnifiedSchedulingEngine can be set to true.</item>
             </list>
             </summary>
         </member>
@@ -1579,14 +1531,10 @@
             <para>Changes from V2_1:</para>
             <list type="bullet">
             <item>
-            <term>
             TaskDefinition.Settings.MaintenanceSettings can have Period or Deadline be values other than TimeSpan.Zero or the Exclusive
             property set to true.
-            </term>
             </item>
-            <item>
-            <term>TaskDefinition.Settings.Volatile can be set to true.</term>
-            </item>
+            <item>TaskDefinition.Settings.Volatile can be set to true.</item>
             </list>
             </summary>
         </member>
@@ -1595,9 +1543,7 @@
             The task is compatible with Task Scheduler 2.3 (Windows® 10, Windows Server™ 2016).
             <para>Changes from V2_2:</para>
             <list type="bullet">
-            <item>
-            <term>None published.</term>
-            </item>
+            <item>None published.</item>
             </list>
             </summary>
         </member>
@@ -2525,6 +2471,14 @@
             Provides the security credentials for a principal. These security credentials define the security context for the tasks that are
             associated with the principal.
             </summary>
+            <remarks>
+            This class can only be accessed via <see cref="P:Microsoft.Win32.TaskScheduler.TaskDefinition.Principal"/>. It is used to set properties related to the principal
+            (account) that will run a task.
+            </remarks>
+            <example><code language="cs">TaskDefinition td = TaskService.Instance.NewTask();
+            td.Principal.UserId = "SYSTEM";
+            td.Principal.LogonType = TaskLogonType.ServiceAccount;</code>
+            </example>
         </member>
         <member name="E:Microsoft.Win32.TaskScheduler.TaskPrincipal.PropertyChanged">
             <summary>Occurs when a property value changes.</summary>
@@ -3968,6 +3922,16 @@
             <param name="user">The user name with permissions on the remote machine.</param>
             <param name="password">The password for the user.</param>
         </member>
+        <member name="M:Microsoft.Win32.TaskScheduler.TaskEventWatcher.#ctor(System.String,System.String,System.String,System.String,System.Security.SecureString)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Win32.TaskScheduler.TaskEventWatcher" /> class on a remote machine.
+            </summary>
+            <param name="machineName">Name of the remote machine.</param>
+            <param name="taskPath">The task path.</param>
+            <param name="domain">The domain of the user account.</param>
+            <param name="user">The user name with permissions on the remote machine.</param>
+            <param name="securePassword">The password for the user as a secure string.</param>
+        </member>
         <member name="M:Microsoft.Win32.TaskScheduler.TaskEventWatcher.#ctor(System.String,System.String,System.String,System.Boolean,System.String,System.String,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Microsoft.Win32.TaskScheduler.TaskEventWatcher" /> class on a remote machine.
@@ -4439,13 +4403,19 @@
             </returns>
         </member>
         <member name="M:Microsoft.Win32.TaskScheduler.TaskFolder.EnumerateFolderTasks(Microsoft.Win32.TaskScheduler.TaskFolder,System.Predicate{Microsoft.Win32.TaskScheduler.Task},System.Boolean)">
-            <summary>
-            Enumerates the tasks in the specified folder and its child folders.
-            </summary>
+            <summary>Enumerates the tasks in the specified folder and its child folders.</summary>
             <param name="folder">The folder in which to start enumeration.</param>
             <param name="filter">An optional filter to apply to the task list.</param>
             <param name="recurse"><c>true</c> if subfolders are to be queried recursively.</param>
-            <returns>A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the tasks.</returns>
+            <returns>A <see cref="T:System.Collections.Generic.List`1"/> that can be used to iterate through the tasks.</returns>
+        </member>
+        <member name="M:Microsoft.Win32.TaskScheduler.TaskFolder.FindTasksInFolder(Microsoft.Win32.TaskScheduler.TaskFolder,System.Predicate{Microsoft.Win32.TaskScheduler.Task},System.Collections.Generic.List{Microsoft.Win32.TaskScheduler.Task}@,System.Boolean)">
+            <summary>Finds the task in folder.</summary>
+            <param name="fld">The folder.</param>
+            <param name="filter">The filter to use when looking for tasks.</param>
+            <param name="results">The results.</param>
+            <param name="recurse">if set to <c>true</c> recurse folders.</param>
+            <returns>True if any tasks are found, False if not.</returns>
         </member>
         <member name="T:Microsoft.Win32.TaskScheduler.TaskFolderCollection">
             <summary>Provides information and control for a collection of folders that contain tasks.</summary>
@@ -4950,6 +4920,20 @@
             </param>
             <param name="forceV1">If set to <c>true</c> force Task Scheduler 1.0 compatibility.</param>
         </member>
+        <member name="M:Microsoft.Win32.TaskScheduler.TaskService.#ctor(System.String,System.String,System.String,System.Security.SecureString,System.Boolean)">
+            <summary>Initializes a new instance of the <see cref="T:Microsoft.Win32.TaskScheduler.TaskService"/> class.</summary>
+            <param name="targetServer">
+            The name of the computer that you want to connect to. If the this parameter is empty, then this will connect to the local computer.
+            </param>
+            <param name="userName">
+            The user name that is used during the connection to the computer. If the user is not specified, then the current token is used.
+            </param>
+            <param name="accountDomain">The domain of the user specified in the <paramref name="userName"/> parameter.</param>
+            <param name="userSecurePassword">
+            The password that is used to connect to the computer as a SecureString. If the user name and securePassword are not specified, then the current token is used.
+            </param>
+            <param name="forceV1">If set to <c>true</c> force Task Scheduler 1.0 compatibility.</param>
+        </member>
         <member name="T:Microsoft.Win32.TaskScheduler.TaskService.ComHandlerUpdate">
             <summary>Delegate for methods that support update calls during COM handler execution.</summary>
             <param name="percentage">The percentage of completion (0 to 100).</param>
@@ -5070,6 +5054,9 @@
         <member name="P:Microsoft.Win32.TaskScheduler.TaskService.UserPassword">
             <summary>Gets or sets the user password to be used when connecting to the <see cref="P:Microsoft.Win32.TaskScheduler.TaskService.TargetServer"/>.</summary>
             <value>The user password.</value>
+        </member>
+        <member name="P:Microsoft.Win32.TaskScheduler.TaskService.UserPasswordPlainText">
+            <summary>Gets the user password in plain text from either userPassword or userSecurePassword.</summary>
         </member>
         <member name="P:Microsoft.Win32.TaskScheduler.TaskService.AllTasks">
             <summary>Gets a <see cref="T:System.Collections.Generic.IEnumerator`1"/> which enumerates all the tasks in all folders.</summary>
@@ -5227,7 +5214,8 @@
             <summary>Finds all tasks matching a name or standard wildcards.</summary>
             <param name="filter">The filter used to determine tasks to select.</param>
             <param name="searchAllFolders">if set to <c>true</c> search all sub folders.</param>
-            <returns>An array of <see cref="T:Microsoft.Win32.TaskScheduler.Task"/> containing all tasks matching <paramref name="filter"/>.</returns>
+            <returns>An array of <see cref="T:Microsoft.Win32.TaskScheduler.Task" /> containing all tasks matching <paramref name="filter" />.</returns>
+            <example><code title="Returns all tasks with logon triggers">TaskService.Instance.FindAllTasks(t =&gt; t.Triggers.ContainsType(typeof(LogonTrigger)), true);</code></example>
         </member>
         <member name="M:Microsoft.Win32.TaskScheduler.TaskService.FindTask(System.String,System.Boolean)">
             <summary>Finds a task given a name and standard wildcards.</summary>
@@ -5281,6 +5269,10 @@
             <returns>A <see cref="T:Microsoft.Win32.TaskScheduler.TaskDefinition"/> instance.</returns>
             <exception cref="T:Microsoft.Win32.TaskScheduler.NotV1SupportedException">Importing from an XML file is only supported under Task Scheduler 2.0.</exception>
         </member>
+        <member name="M:Microsoft.Win32.TaskScheduler.TaskService.SetUserSecurePassword(System.Security.SecureString)">
+            <summary>Sets the user password as a secure string to be used when connecting to the <see cref="P:Microsoft.Win32.TaskScheduler.TaskService.TargetServer"/>.</summary>
+            <param name="value">A secure string containing the user password to set.</param>
+        </member>
         <member name="M:Microsoft.Win32.TaskScheduler.TaskService.StartSystemTaskSchedulerManager">
             <summary>Starts the Task Scheduler UI for the OS hosting the assembly if the session is running in interactive mode.</summary>
         </member>
@@ -5297,14 +5289,6 @@
             <summary>Finds the task in folder.</summary>
             <param name="fld">The folder.</param>
             <param name="taskName">The wildcard expression to compare task names with.</param>
-            <param name="results">The results.</param>
-            <param name="recurse">if set to <c>true</c> recurse folders.</param>
-            <returns>True if any tasks are found, False if not.</returns>
-        </member>
-        <member name="M:Microsoft.Win32.TaskScheduler.TaskService.FindTaskInFolder(Microsoft.Win32.TaskScheduler.TaskFolder,System.Predicate{Microsoft.Win32.TaskScheduler.Task},System.Collections.Generic.List{Microsoft.Win32.TaskScheduler.Task}@,System.Boolean)">
-            <summary>Finds the task in folder.</summary>
-            <param name="fld">The folder.</param>
-            <param name="filter">The filter to use when looking for tasks.</param>
             <param name="results">The results.</param>
             <param name="recurse">if set to <c>true</c> recurse folders.</param>
             <returns>True if any tasks are found, False if not.</returns>
