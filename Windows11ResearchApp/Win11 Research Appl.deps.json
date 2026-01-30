@@ -9,20 +9,20 @@
       "Win11 Research Appl/1.0.0": {
         "dependencies": {
           "EntityFramework": "6.5.1",
-          "Microsoft.AspNetCore.SystemWebAdapters": "2.1.0",
-          "Microsoft.Bcl.AsyncInterfaces": "10.0.0",
+          "Microsoft.AspNetCore.SystemWebAdapters": "2.2.1",
+          "Microsoft.Bcl.AsyncInterfaces": "10.0.1",
           "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
           "NetBox": "2.5.3",
           "Newtonsoft.Json": "13.0.4",
           "SourceGear.sqlite3": "3.50.4.5",
           "Storage.Net": "9.3.0",
-          "System.Configuration.ConfigurationManager": "10.0.0",
+          "System.Configuration.ConfigurationManager": "10.0.1",
           "System.Data.SQLite": "2.0.2",
           "System.Data.SQLite.MSIL": "1.0.119",
-          "System.IO.Pipelines": "10.0.0",
-          "System.Management": "10.0.0",
-          "System.Text.Encodings.Web": "10.0.0",
-          "System.Text.Json": "10.0.0",
+          "System.IO.Pipelines": "10.0.1",
+          "System.Management": "10.0.1",
+          "System.Text.Encodings.Web": "10.0.1",
+          "System.Text.Json": "10.0.1",
           "TaskScheduler": "2.12.2",
           "antidll": "1.0.0",
           "dummyConsoleApp": "1.0.0",
@@ -34,8 +34,8 @@
       },
       "EntityFramework/6.5.1": {
         "dependencies": {
-          "System.CodeDom": "10.0.0",
-          "System.Configuration.ConfigurationManager": "10.0.0",
+          "System.CodeDom": "10.0.1",
+          "System.Configuration.ConfigurationManager": "10.0.1",
           "System.Data.SqlClient": "4.8.6"
         },
         "runtime": {
@@ -51,7 +51,7 @@
       },
       "log4net/3.2.0": {
         "dependencies": {
-          "System.Configuration.ConfigurationManager": "10.0.0"
+          "System.Configuration.ConfigurationManager": "10.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/log4net.dll": {
@@ -60,22 +60,22 @@
           }
         }
       },
-      "Microsoft.AspNetCore.SystemWebAdapters/2.1.0": {
+      "Microsoft.AspNetCore.SystemWebAdapters/2.2.1": {
         "dependencies": {
-          "System.Runtime.Caching": "8.0.0"
+          "System.Runtime.Caching": "9.0.11"
         },
         "runtime": {
-          "lib/net8.0/Microsoft.AspNetCore.SystemWebAdapters.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.100.25.51502"
+          "lib/net9.0/Microsoft.AspNetCore.SystemWebAdapters.dll": {
+            "assemblyVersion": "2.2.1.0",
+            "fileVersion": "2.200.125.61802"
           }
         }
       },
-      "Microsoft.Bcl.AsyncInterfaces/10.0.0": {
+      "Microsoft.Bcl.AsyncInterfaces/10.0.1": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
-            "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "assemblyVersion": "10.0.0.1",
+            "fileVersion": "10.0.125.57005"
           }
         }
       },
@@ -300,7 +300,7 @@
         "dependencies": {
           "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
           "NetBox": "2.5.3",
-          "System.Text.Json": "10.0.0"
+          "System.Text.Json": "10.0.1"
         },
         "runtime": {
           "lib/netstandard2.1/Storage.Net.dll": {
@@ -309,23 +309,23 @@
           }
         }
       },
-      "System.CodeDom/10.0.0": {
+      "System.CodeDom/10.0.1": {
         "runtime": {
           "lib/net9.0/System.CodeDom.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.125.57005"
           }
         }
       },
-      "System.Configuration.ConfigurationManager/10.0.0": {
+      "System.Configuration.ConfigurationManager/10.0.1": {
         "dependencies": {
-          "System.Diagnostics.EventLog": "10.0.0",
-          "System.Security.Cryptography.ProtectedData": "10.0.0"
+          "System.Diagnostics.EventLog": "10.0.1",
+          "System.Security.Cryptography.ProtectedData": "10.0.1"
         },
         "runtime": {
           "lib/net9.0/System.Configuration.ConfigurationManager.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.125.57005"
           }
         }
       },
@@ -378,11 +378,11 @@
           "System.Data.SQLite.EF6": "1.0.119"
         }
       },
-      "System.Diagnostics.EventLog/10.0.0": {
+      "System.Diagnostics.EventLog/10.0.1": {
         "runtime": {
           "lib/net9.0/System.Diagnostics.EventLog.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.125.57005"
           }
         },
         "runtimeTargets": {
@@ -396,69 +396,69 @@
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.125.57005"
           }
         }
       },
-      "System.IO.Pipelines/10.0.0": {
+      "System.IO.Pipelines/10.0.1": {
         "runtime": {
           "lib/net9.0/System.IO.Pipelines.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.125.57005"
           }
         }
       },
-      "System.Management/10.0.0": {
+      "System.Management/10.0.1": {
         "dependencies": {
-          "System.CodeDom": "10.0.0"
+          "System.CodeDom": "10.0.1"
         },
         "runtime": {
           "lib/net9.0/System.Management.dll": {
-            "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "assemblyVersion": "10.0.0.1",
+            "fileVersion": "10.0.125.57005"
           }
         },
         "runtimeTargets": {
           "runtimes/win/lib/net9.0/System.Management.dll": {
             "rid": "win",
             "assetType": "runtime",
-            "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "assemblyVersion": "10.0.0.1",
+            "fileVersion": "10.0.125.57005"
           }
         }
       },
-      "System.Runtime.Caching/8.0.0": {
+      "System.Runtime.Caching/9.0.11": {
         "dependencies": {
-          "System.Configuration.ConfigurationManager": "10.0.0"
+          "System.Configuration.ConfigurationManager": "10.0.1"
         },
         "runtime": {
-          "lib/net8.0/System.Runtime.Caching.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+          "lib/net9.0/System.Runtime.Caching.dll": {
+            "assemblyVersion": "9.0.0.11",
+            "fileVersion": "9.0.1125.51716"
           }
         },
         "runtimeTargets": {
-          "runtimes/win/lib/net8.0/System.Runtime.Caching.dll": {
+          "runtimes/win/lib/net9.0/System.Runtime.Caching.dll": {
             "rid": "win",
             "assetType": "runtime",
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+            "assemblyVersion": "9.0.0.11",
+            "fileVersion": "9.0.1125.51716"
           }
         }
       },
-      "System.Security.Cryptography.ProtectedData/10.0.0": {
+      "System.Security.Cryptography.ProtectedData/10.0.1": {
         "runtime": {
           "lib/net9.0/System.Security.Cryptography.ProtectedData.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.125.57005"
           }
         }
       },
-      "System.Text.Encodings.Web/10.0.0": {
+      "System.Text.Encodings.Web/10.0.1": {
         "runtime": {
           "lib/net9.0/System.Text.Encodings.Web.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.125.57005"
           }
         },
         "runtimeTargets": {
@@ -466,31 +466,31 @@
             "rid": "browser",
             "assetType": "runtime",
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.125.57005"
           },
           "runtimes/win/lib/net9.0/System.Text.Encodings.Web.dll": {
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.125.57005"
           }
         }
       },
-      "System.Text.Json/10.0.0": {
+      "System.Text.Json/10.0.1": {
         "dependencies": {
-          "System.IO.Pipelines": "10.0.0",
-          "System.Text.Encodings.Web": "10.0.0"
+          "System.IO.Pipelines": "10.0.1",
+          "System.Text.Encodings.Web": "10.0.1"
         },
         "runtime": {
           "lib/net9.0/System.Text.Json.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.125.57005"
           }
         }
       },
       "TaskScheduler/2.12.2": {
         "dependencies": {
-          "System.Diagnostics.EventLog": "10.0.0"
+          "System.Diagnostics.EventLog": "10.0.1"
         },
         "runtime": {
           "lib/net9.0-windows7.0/Microsoft.Win32.TaskScheduler.dll": {
@@ -537,20 +537,20 @@
       "antidll/1.0.0": {
         "dependencies": {
           "EntityFramework": "6.5.1",
-          "Microsoft.AspNetCore.SystemWebAdapters": "2.1.0",
-          "Microsoft.Bcl.AsyncInterfaces": "10.0.0",
+          "Microsoft.AspNetCore.SystemWebAdapters": "2.2.1",
+          "Microsoft.Bcl.AsyncInterfaces": "10.0.1",
           "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
           "NetBox": "2.5.3",
           "Newtonsoft.Json": "13.0.4",
           "SourceGear.sqlite3": "3.50.4.5",
           "Storage.Net": "9.3.0",
-          "System.Configuration.ConfigurationManager": "10.0.0",
+          "System.Configuration.ConfigurationManager": "10.0.1",
           "System.Data.SQLite": "2.0.2",
           "System.Data.SQLite.MSIL": "1.0.119",
-          "System.IO.Pipelines": "10.0.0",
-          "System.Management": "10.0.0",
-          "System.Text.Encodings.Web": "10.0.0",
-          "System.Text.Json": "10.0.0",
+          "System.IO.Pipelines": "10.0.1",
+          "System.Management": "10.0.1",
+          "System.Text.Encodings.Web": "10.0.1",
+          "System.Text.Json": "10.0.1",
           "TaskScheduler": "2.12.2",
           "log4net": "3.2.0"
         },
@@ -599,19 +599,19 @@
       "path": "log4net/3.2.0",
       "hashPath": "log4net.3.2.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.SystemWebAdapters/2.1.0": {
+    "Microsoft.AspNetCore.SystemWebAdapters/2.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-R5zDdn9O1nCAZTiHDJl2fdXaNlkpZ9RmQ2lNrAz+jtjdUHyL6JnSfXGfIQtMD/5PFBvDKbG3s4zoAjTRLdvi+A==",
-      "path": "microsoft.aspnetcore.systemwebadapters/2.1.0",
-      "hashPath": "microsoft.aspnetcore.systemwebadapters.2.1.0.nupkg.sha512"
+      "sha512": "sha512-sQPZOs0GOsZOfXSDgEk+ZErJijjkEMYPjmYpQ0SzA7lGLO61pC9uFlNF0rdzxYGRdXpek3uKsOIVW7GUZKHn2w==",
+      "path": "microsoft.aspnetcore.systemwebadapters/2.2.1",
+      "hashPath": "microsoft.aspnetcore.systemwebadapters.2.2.1.nupkg.sha512"
     },
-    "Microsoft.Bcl.AsyncInterfaces/10.0.0": {
+    "Microsoft.Bcl.AsyncInterfaces/10.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vFuwSLj9QJBbNR0NeNO4YVASUbokxs+i/xbuu8B+Fs4FAZg5QaFa6eGrMaRqTzzNI5tAb97T7BhSxtLckFyiRA==",
-      "path": "microsoft.bcl.asyncinterfaces/10.0.0",
-      "hashPath": "microsoft.bcl.asyncinterfaces.10.0.0.nupkg.sha512"
+      "sha512": "sha512-E1HSLkPHXEO30JEij2pWbOuzz1Z5ND4a5l7IP1T2RgQuE0a0NzEIvtO64RNy3Otn6PFezbT80cfm3M/Cgt70PA==",
+      "path": "microsoft.bcl.asyncinterfaces/10.0.1",
+      "hashPath": "microsoft.bcl.asyncinterfaces.10.0.1.nupkg.sha512"
     },
     "Microsoft.IO.RecyclableMemoryStream/3.0.1": {
       "type": "package",
@@ -676,19 +676,19 @@
       "path": "storage.net/9.3.0",
       "hashPath": "storage.net.9.3.0.nupkg.sha512"
     },
-    "System.CodeDom/10.0.0": {
+    "System.CodeDom/10.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-QWERdKi/tQAx+MbrPxTGcpchqMANnVXNiv2r2tILBBB38E74buD+fABSUhozZ1G9kjbadFB0m+HPFMkhJPeFvA==",
-      "path": "system.codedom/10.0.0",
-      "hashPath": "system.codedom.10.0.0.nupkg.sha512"
+      "sha512": "sha512-owy+NlWSBRNLZO8CZ7IguuaPHHiAivjstTciM7YlXyDDqBY26FMl3F9Nw04n8Dog1JaxFlZiEIEXKPaigRmkNg==",
+      "path": "system.codedom/10.0.1",
+      "hashPath": "system.codedom.10.0.1.nupkg.sha512"
     },
-    "System.Configuration.ConfigurationManager/10.0.0": {
+    "System.Configuration.ConfigurationManager/10.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0B+BzJ6pPMrRzJrVsttKf9MfDj6Syw9xoY+agcS9VssYQali1446+jTf5v1K94AMFUBxLXqDZlaTjO5edaI3jA==",
-      "path": "system.configuration.configurationmanager/10.0.0",
-      "hashPath": "system.configuration.configurationmanager.10.0.0.nupkg.sha512"
+      "sha512": "sha512-HfOAIlSA8OuaxBZD6xjsUWhtB0KdKSWEfRId8gSGveLUjuP6G8IxfiFgJNxaiRIEC1kx4pSvz3Em5xW/J6LLxA==",
+      "path": "system.configuration.configurationmanager/10.0.1",
+      "hashPath": "system.configuration.configurationmanager.10.0.1.nupkg.sha512"
     },
     "System.Data.SqlClient/4.8.6": {
       "type": "package",
@@ -718,54 +718,54 @@
       "path": "system.data.sqlite.msil/1.0.119",
       "hashPath": "system.data.sqlite.msil.1.0.119.nupkg.sha512"
     },
-    "System.Diagnostics.EventLog/10.0.0": {
+    "System.Diagnostics.EventLog/10.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-uaFRda9NjtbJRkdx311eXlAA3n2em7223c1A8d1VWyl+4FL9vkG7y2lpPfBU9HYdj/9KgdRNdn1vFK8ZYCYT/A==",
-      "path": "system.diagnostics.eventlog/10.0.0",
-      "hashPath": "system.diagnostics.eventlog.10.0.0.nupkg.sha512"
+      "sha512": "sha512-xfaHEHVDkMOOZR5S6ZGezD0+vekdH1Nx/9Ih8/rOqOGSOk1fxiN3u94bYkBW/wigj0Uw2Wt3vvRj9mtYdgwEjw==",
+      "path": "system.diagnostics.eventlog/10.0.1",
+      "hashPath": "system.diagnostics.eventlog.10.0.1.nupkg.sha512"
     },
-    "System.IO.Pipelines/10.0.0": {
+    "System.IO.Pipelines/10.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-M1eb3nfXntaRJPrrMVM9EFS8I1bDTnt0uvUS6QP/SicZf/ZZjydMD5NiXxfmwW/uQwaMDP/yX2P+zQN1NBHChg==",
-      "path": "system.io.pipelines/10.0.0",
-      "hashPath": "system.io.pipelines.10.0.0.nupkg.sha512"
+      "sha512": "sha512-26LbFXHKd7PmRnWlkjnYgmjd5B6HYVG+1MpTO25BdxTJnx6D0O16JPAC/S4YBqjtt4YpfGj1QO/Ss6SPMGEGQw==",
+      "path": "system.io.pipelines/10.0.1",
+      "hashPath": "system.io.pipelines.10.0.1.nupkg.sha512"
     },
-    "System.Management/10.0.0": {
+    "System.Management/10.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LE3rDZoPzulou78Tsq+3ALhUs4vatQ03v2QWbYVIenVPneUH/+LTUmHyyl098OxIFLQI6sNkZs8YHbUnT/sm3A==",
-      "path": "system.management/10.0.0",
-      "hashPath": "system.management.10.0.0.nupkg.sha512"
+      "sha512": "sha512-/mywt9LtfYM+QbnIPPqdES/qWWU3tkorSDHPX99KYhCTtxdjGFmLcz7QwpAAeBKU0o+rZzEcpKZlrtEr1Xq39g==",
+      "path": "system.management/10.0.1",
+      "hashPath": "system.management.10.0.1.nupkg.sha512"
     },
-    "System.Runtime.Caching/8.0.0": {
+    "System.Runtime.Caching/9.0.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4TmlmvGp4kzZomm7J2HJn6IIx0UUrQyhBDyb5O1XiunZlQImXW+B8b7W/sTPcXhSf9rp5NR5aDtQllwbB5elOQ==",
-      "path": "system.runtime.caching/8.0.0",
-      "hashPath": "system.runtime.caching.8.0.0.nupkg.sha512"
+      "sha512": "sha512-eSgip8omFPbhZb2mGdu489FnFWFBQv2HYtQzbD9XKmGx6yrHVAUUPSryYi1d8PcQ1fFA57opbwJ+BgbpDO18pw==",
+      "path": "system.runtime.caching/9.0.11",
+      "hashPath": "system.runtime.caching.9.0.11.nupkg.sha512"
     },
-    "System.Security.Cryptography.ProtectedData/10.0.0": {
+    "System.Security.Cryptography.ProtectedData/10.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qy6C3gQRTrfhFfuiIYU1jNwWfFdJpBVo1BARW7jgMm1zTEm3LRzLLyOLJGaAuKE+nZCGkEP71y4rj9NWjqLGdQ==",
-      "path": "system.security.cryptography.protecteddata/10.0.0",
-      "hashPath": "system.security.cryptography.protecteddata.10.0.0.nupkg.sha512"
+      "sha512": "sha512-9SqHNq+lAjZeyPcm69FTQEjr+wsRYvkS3aW8yxoEndVYwDRkCrsP/44QPqpWHwzevoX26rkOoQ6kr7GZWngw2A==",
+      "path": "system.security.cryptography.protecteddata/10.0.1",
+      "hashPath": "system.security.cryptography.protecteddata.10.0.1.nupkg.sha512"
     },
-    "System.Text.Encodings.Web/10.0.0": {
+    "System.Text.Encodings.Web/10.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-257hh1ep1Gqm1Lm0ulxf7vVBVMJuGN6EL4xSWjpi46DffXzm1058IiWsfSC06zSm7SniN+Tb5160UnXsSa8rRg==",
-      "path": "system.text.encodings.web/10.0.0",
-      "hashPath": "system.text.encodings.web.10.0.0.nupkg.sha512"
+      "sha512": "sha512-cVAka0o1rJJ5/De0pjNs7jcaZk5hUGf1HGzUyVmE2MEB1Vf0h/8qsWxImk1zjitCbeD2Avaq2P2+usdvqgbeVQ==",
+      "path": "system.text.encodings.web/10.0.1",
+      "hashPath": "system.text.encodings.web.10.0.1.nupkg.sha512"
     },
-    "System.Text.Json/10.0.0": {
+    "System.Text.Json/10.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1Dpjwq9peG/Wt5BNbrzIhTpclfOSqBWZsUO28vVr59yQlkvL5jLBWfpfzRmJ1OY+6DciaY0DUcltyzs4fuZHjw==",
-      "path": "system.text.json/10.0.0",
-      "hashPath": "system.text.json.10.0.0.nupkg.sha512"
+      "sha512": "sha512-EsgwDgU1PFqhrFA9l5n+RBu76wFhNGCEwu8ITrBNhjPP3MxLyklroU5GIF8o6JYpYg6T4KD/VICfMdgPAvNp5g==",
+      "path": "system.text.json/10.0.1",
+      "hashPath": "system.text.json.10.0.1.nupkg.sha512"
     },
     "TaskScheduler/2.12.2": {
       "type": "package",
